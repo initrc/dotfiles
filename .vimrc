@@ -18,8 +18,9 @@ syn on
 set number
 
 "tab
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 "indent
 set ai
@@ -29,6 +30,13 @@ filetype indent on
 filetype on
 filetype plugin on
 
+"whitespaces
+set listchars=tab:>-,trail:~
+set list
+set listchars=tab:>-
+set listchars+=trail:.
+autocmd FileType c,cpp,java,py autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 "search
 set hlsearch
 set incsearch
@@ -37,12 +45,8 @@ set ignorecase
 set smartcase
 
 "python
-au BufNewFile,BufRead *.py set expandtab
-au BufNewFile,BufRead *.py set listchars=tab:>-,trail:~
-au BufNewFile,BufRead *.py set list
-au BufNewFile,BufRead *.py set listchars=tab:>-
-au BufNewFile,BufRead *.py set listchars+=trail:.
+au BufNewFile,BufRead *.py set tabstop=2
+au BufNewFile,BufRead *.py set shiftwidth=2
 
 "encoding
 set fileencodings=utf-8,gb2312,gbk,gb18030
-
