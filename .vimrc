@@ -16,6 +16,7 @@ endif
 colorscheme mustang
 syn on
 set number
+set laststatus=2
 
 "tab
 set tabstop=4
