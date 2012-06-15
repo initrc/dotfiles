@@ -24,7 +24,7 @@ set listchars=tab:>-,trail:~
 set list
 set listchars=tab:>-
 set listchars+=trail:.
-autocmd FileType c,cpp,java,py,xml,sh,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,py,rb,xml,sh,markdown autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "search
 set hlsearch
@@ -34,8 +34,8 @@ set ignorecase
 set smartcase
 
 "python
-au BufNewFile,BufRead *.py set tabstop=2
-au BufNewFile,BufRead *.py set shiftwidth=2
+au BufNewFile,BufRead *.py,*.rb set tabstop=2
+au BufNewFile,BufRead *.py,*.rb set shiftwidth=2
 
 "encoding
 set fileencodings=utf-8,gb2312,gbk,gb18030
