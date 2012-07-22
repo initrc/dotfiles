@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/david/code/git'
+let g:netrw_dirhist_2='/home/david/code'
+let g:netrw_dirhist_3='/home/david/.gconf/apps/gnome-terminal'
+let g:netrw_dirhist_4='/usr/share/themes/Adwaita'
+let g:netrw_dirhist_5='/home/david/code/git/dotfiles/conky'
+let g:netrw_dirhist_6='/home/david/code/git/dotfiles'
+let g:netrw_dirhist_7='/home/david/.config/autostart'
+let g:netrw_dirhist_8='/home/david/.urxvt'
+let g:netrw_dirhist_9='/home/david/code/git/dotfiles/.vim/autoload/Powerline/Functions'
