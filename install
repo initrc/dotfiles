@@ -1,7 +1,27 @@
 #!/bin/bash
-git pull
+
 DIR="$( cd "$( dirname "$0" )" && pwd )"
-cd ~/
-ln -s "$DIR/.vimrc"
-ln -s "$DIR/.vim"
-ln -s "$DIR/.tmux.conf"
+
+function link() {
+    SOURCE=$DIR/$1
+    TARGET=~/.$1
+    if [ -s "$TARGET" ]; then
+        rm $TARGET
+    fi
+    ln -s $SOURCE $TARGET
+}
+
+function link_files() {
+    link vimrc
+    link vim
+    link bash_profile
+    link tmux.conf
+}
+
+function brew_install() {
+    brew install git
+    brew install macvim --override-system-vim
+    brew install tmux
+}
+
+link_files
