@@ -32,7 +32,7 @@ set listchars=tab:>-,trail:~
 set list
 set listchars=tab:>-
 set listchars+=trail:.
-autocmd FileType c,cpp,java,py,rb,xml,sh,markdown,vim autocmd BufWritePre <buffer> :%s/\s\+$//e
+"autocmd FileType c,cpp,java,py,rb,html,xml,sh,markdown,vim autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "search
 set hlsearch
