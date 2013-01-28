@@ -23,7 +23,7 @@ endif
 
 " General colors
 hi Cursor guifg=NONE guibg=#626262 gui=NONE ctermbg=241
-hi Normal guifg=#e2e2e5 guibg=#202020 gui=NONE ctermfg=253 ctermbg=234
+hi Normal guifg=#d0d0d0 guibg=#202020 gui=NONE ctermfg=252 ctermbg=234
 hi NonText guifg=#808080 guibg=#303030 gui=NONE ctermfg=244 ctermbg=235
 hi LineNr guifg=#808080 guibg=#000000 gui=NONE ctermfg=244 ctermbg=232
 hi StatusLine guifg=#d3d3d5 guibg=#444444 gui=italic ctermfg=253 ctermbg=238 cterm=italic
@@ -33,6 +33,7 @@ hi Folded guibg=#384048 guifg=#a0a8b0 gui=NONE ctermbg=4 ctermfg=248
 hi Title guifg=#f6f3e8 guibg=NONE gui=bold ctermfg=254 cterm=bold
 hi Visual guifg=#faf4c6 guibg=#3c414c gui=NONE ctermfg=254 ctermbg=4
 hi SpecialKey guifg=#808080 guibg=#343434 gui=NONE ctermfg=244 ctermbg=236
+hi Directory guifg=#d7875f guibg=NONE gui=NONE ctermfg=173
 
 " Syntax highlighting
 hi Comment guifg=#808080 gui=italic ctermfg=244
@@ -43,10 +44,10 @@ hi Identifier guifg=#b1d631 gui=NONE ctermfg=148
 hi Function guifg=#ffffff gui=bold ctermfg=255
 hi Type guifg=#7e8aa2 gui=NONE ctermfg=103
 hi Statement guifg=#7e8aa2 gui=NONE ctermfg=103
-hi Keyword guifg=#ff9800 gui=NONE ctermfg=208
-hi Constant guifg=#ff9800 gui=NONE  ctermfg=208
-hi Number guifg=#ff9800 gui=NONE ctermfg=208
-hi Special guifg=#ff9800 gui=NONE ctermfg=208
+hi Keyword guifg=#d7875f gui=NONE ctermfg=173
+hi Constant guifg=#d7875f gui=NONE  ctermfg=173
+hi Number guifg=#d7875f gui=NONE ctermfg=173
+hi Special guifg=#d7875f gui=NONE ctermfg=173
 hi PreProc guifg=#faf4c6 gui=NONE ctermfg=230
 hi Todo guifg=#000000 guibg=#e6ea50 gui=italic
 
