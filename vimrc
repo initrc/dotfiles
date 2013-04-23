@@ -47,3 +47,7 @@ au BufNewFile,BufRead *.py,*.rb,*.vim set shiftwidth=2
 
 "encoding
 set fileencodings=utf-8,gb2312,gbk,gb18030
+
+"mapping
+nmap <F8> <Esc>:w<CR>:!%:p<CR>
+imap <F8> <Esc>:w<CR>:!%:p<CR>
