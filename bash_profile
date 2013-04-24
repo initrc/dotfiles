@@ -13,3 +13,5 @@ alias l='ls -al'
 
 [ -s "/Users/david/.scm_breeze/scm_breeze.sh" ] && source "/Users/david/.scm_breeze/scm_breeze.sh"
 source ~/.bashrc
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
