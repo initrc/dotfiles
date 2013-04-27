@@ -23,9 +23,7 @@ set expandtab
 set ai
 set autoindent
 set smartindent
-filetype indent on
-filetype on
-filetype plugin on
+filetype plugin indent on
 
 "whitespaces
 set listchars=tab:>-,trail:~
@@ -42,8 +40,8 @@ set ignorecase
 set smartcase
 
 "tabstop=2
-au BufNewFile,BufRead *.py,*.rb,*.vim set tabstop=2
-au BufNewFile,BufRead *.py,*.rb,*.vim set shiftwidth=2
+au BufNewFile,BufRead *.vim set tabstop=2
+au BufNewFile,BufRead *.vim set shiftwidth=2
 
 "encoding
 set fileencodings=utf-8,gb2312,gbk,gb18030
