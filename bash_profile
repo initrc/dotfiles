@@ -1,17 +1,18 @@
+# color and prompt
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 #export PS1="\u@\h:\w "
 export PS1="\u:\w "
+
+# path
 #export JAVA_HOME=`/usr/libexec/java_home`
-# Android
-#export ANDROID_SDK=~/dev/android-sdk-macosx
-#PATH="$PATH:~/bin:$ANDROID_SDK/tools:$ANDROID_SDK/platform-tools:$ARM_GNUEABI/bin"
-PATH="/usr/local/bin:$PATH"
+PATH="/usr/local/bin:$PATH:$HOME/.rvm/bin"
 export PATH
+
+# source
+[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
+# alias
 alias s='cd ..'
 alias l='ls -al'
-
-[ -s "/Users/david/.scm_breeze/scm_breeze.sh" ] && source "/Users/david/.scm_breeze/scm_breeze.sh"
-source ~/.bashrc
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
