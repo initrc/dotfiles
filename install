@@ -10,12 +10,13 @@ function link() {
 }
 
 function link_files() {
-    link vimrc
-    link vim
     link bash_profile
+    link bashrc
+    link gitignore_global
     link tmux.conf
     link tmux-osx.conf
-    link gitignore_global
+    link vim
+    link vimrc
 }
 
 function brew_install() {
