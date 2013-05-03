@@ -18,3 +18,6 @@ if [ "$(uname)" == "Darwin" ]; then
 else
     alias tmux='tmux -2'
 fi
+
+# extra alias
+[ -s "$HOME/.alias" ] && source "$HOME/.alias"
