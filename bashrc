@@ -1,5 +1,5 @@
 # prompt
-export PS1="\u:\w "
+export PS1="\[\033[1;32m\]\u\[\033[1;34m\]:\w\[\033[1;32m\] $\[\033[00m\] "
 
 # path
 PATH="/usr/local/bin:$PATH:$HOME/.rvm/bin"
