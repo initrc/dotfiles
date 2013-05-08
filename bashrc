@@ -21,4 +21,4 @@ else
 fi
 
 # extra alias
-[ -s "$HOME/.alias" ] && source "$HOME/.alias"
+[ -s "$HOME/.bash_extra" ] && source "$HOME/.bash_extra"
