@@ -13,6 +13,7 @@ export PATH
 # alias
 alias s='cd ..'
 alias l='ls -al'
+alias f='find . -name'
 if [ "$(uname)" == "Darwin" ]; then
     alias tmux='tmux -2 -f ~/.tmux-osx.conf'
 else
