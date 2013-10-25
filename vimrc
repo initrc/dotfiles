@@ -7,6 +7,7 @@ filetype plugin indent on
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
 Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-fugitive'
 
 "airline
 let g:airline_powerline_fonts=1
