@@ -19,6 +19,10 @@ function link_files() {
     link vimrc
 }
 
+function vim_config() {
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+}
+
 function brew_install() {
     # install Xcode and command line tools
     brew install git

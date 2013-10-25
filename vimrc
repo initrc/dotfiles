@@ -1,7 +1,15 @@
-call pathogen#infect()
+"vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+filetype plugin indent on
+Bundle 'gmarik/vundle'
+Bundle 'bling/vim-airline'
+Bundle 'scrooloose/nerdtree'
 
-"powerline
-let g:Powerline_symbols = 'fancy'
+"airline
+let g:airline_powerline_fonts=1
 
 "nerd tree
 autocmd vimenter * if !argc() | NERDTree | endif
@@ -40,8 +48,8 @@ set ignorecase
 set smartcase
 
 "tabstop=2
-au BufNewFile,BufRead *.vim set tabstop=2
-au BufNewFile,BufRead *.vim set shiftwidth=2
+au BufNewFile,BufRead *.vim,*.html,*.css,*.js set tabstop=2
+au BufNewFile,BufRead *.vim,*.html,*.css,*.js set shiftwidth=2
 
 "encoding
 set fileencodings=utf-8,gb2312,gbk,gb18030
