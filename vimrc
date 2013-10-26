@@ -5,10 +5,13 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on
 Bundle 'gmarik/vundle'
+"fancy
 Bundle 'bling/vim-airline'
+"file
 Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
+"git
+Bundle 'tpope/vim-fugitive'
 
 "airline
 let g:airline_powerline_fonts=1
@@ -21,7 +24,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = 'find %s -type f'
 
