@@ -68,5 +68,6 @@ au BufNewFile,BufRead *.vim,*.html,*.css,*.js set shiftwidth=2
 set fileencodings=utf-8,gb2312,gbk,gb18030
 
 "mapping
+inoremap jk <Esc>
 nmap <F8> <Esc>:w<CR>:!%:p<CR>
 imap <F8> <Esc>:w<CR>:!%:p<CR>
