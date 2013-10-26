@@ -70,6 +70,9 @@ set fileencodings=utf-8,gb2312,gbk,gb18030
 "mapping
 " esc is too far away
 inoremap jk <Esc>
+" map ; to : for less keystrokes
+nnoremap ; :
+vnoremap ; :
 " last command
 nmap <F8> <Esc>:w<CR>:!%:p<CR>
 imap <F8> <Esc>:w<CR>:!%:p<CR>
