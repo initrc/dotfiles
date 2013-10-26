@@ -5,6 +5,8 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on
 Bundle 'gmarik/vundle'
+"code completion
+Bundle 'Valloric/YouCompleteMe'
 "fancy
 Bundle 'bling/vim-airline'
 "file
@@ -12,6 +14,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 "git
 Bundle 'tpope/vim-fugitive'
+
+"you complete me
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
 "airline
 let g:airline_powerline_fonts=1
