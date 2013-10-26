@@ -73,6 +73,9 @@ inoremap jk <Esc>
 " map ; to : for less keystrokes
 nnoremap ; :
 vnoremap ; :
+" H and L for head and end of line
+noremap H ^
+noremap L $
 " last command
 nmap <F8> <Esc>:w<CR>:!%:p<CR>
 imap <F8> <Esc>:w<CR>:!%:p<CR>
