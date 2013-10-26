@@ -77,6 +77,14 @@ noremap H ^
 noremap L $
 " U to redo
 nnoremap U <C-r>
+" window
+nnoremap <silent> gh :wincmd h<CR>
+nnoremap <silent> gj :wincmd j<CR>
+nnoremap <silent> gk :wincmd k<CR>
+nnoremap <silent> gl :wincmd l<CR>
+nnoremap <silent> gp :wincmd p<CR>
+nnoremap <silent> g= :wincmd =<CR>
+nnoremap <silent> gx :wincmd x<CR>
 " last command
 nmap <F8> <Esc>:w<CR>:!%:p<CR>
 imap <F8> <Esc>:w<CR>:!%:p<CR>
