@@ -76,6 +76,8 @@ vnoremap ; :
 " H and L for head and end of line
 noremap H ^
 noremap L $
+" U to redo
+nnoremap U <C-r>
 " last command
 nmap <F8> <Esc>:w<CR>:!%:p<CR>
 imap <F8> <Esc>:w<CR>:!%:p<CR>
