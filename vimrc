@@ -37,8 +37,9 @@ let g:airline_powerline_fonts=1
 
 "nerdtree
 autocmd vimenter * if !argc() | NERDTree | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeIgnore = ['\.pyc$']
+autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
+let NERDTreeIgnore = ['\.pyc$', '\.class$']
+nnoremap <leader>f :NERDTreeToggle<CR>
 
 "ctrlp
 let g:ctrlp_map = '//'
