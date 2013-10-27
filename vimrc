@@ -20,6 +20,9 @@ Bundle 'scrooloose/syntastic'
 "you complete me
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+"start eclipse or run $eclipse_home/eclimd &
+":CreateProject <path> -n java
+let g:EclimCompletionMethod = 'omnifunc'
 
 "airline
 let g:airline_powerline_fonts=1
