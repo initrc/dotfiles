@@ -94,8 +94,8 @@ set fileencodings=utf-8,gb2312,gbk,gb18030
 " esc is too far away
 inoremap jk <Esc>
 " H and L for head and end of line
-noremap H ^
-noremap L $
+nnoremap H ^
+nnoremap L $
 " U to redo
 nnoremap U <C-r>
 " window
