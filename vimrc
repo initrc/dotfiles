@@ -14,6 +14,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 "git
 Bundle 'tpope/vim-fugitive'
+"syntax
+Bundle 'scrooloose/syntastic'
 
 "you complete me
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -32,6 +34,10 @@ let g:ctrlp_map = '//'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = 'find %s -type f'
+
+"syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_python_checkers=['flake8']
 
 "ui
 let &t_Co=256
