@@ -75,9 +75,6 @@ set fileencodings=utf-8,gb2312,gbk,gb18030
 "mapping
 " esc is too far away
 inoremap jk <Esc>
-" map ; to : for less keystrokes
-nnoremap ; :
-vnoremap ; :
 " H and L for head and end of line
 noremap H ^
 noremap L $
