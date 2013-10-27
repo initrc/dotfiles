@@ -27,7 +27,7 @@ set completeopt=menu,menuone
 set pumheight=10
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-nnoremap <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <silent> <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "start eclipse or run $eclipse_home/eclimd &
 ":CreateProject <path> -n java
 let g:EclimCompletionMethod = 'omnifunc'
@@ -39,7 +39,7 @@ let g:airline_powerline_fonts=1
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
 let NERDTreeIgnore = ['\.pyc$', '\.class$']
-nnoremap <leader>f :NERDTreeToggle<CR>
+nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 
 "ctrlp
 let g:ctrlp_map = '//'
