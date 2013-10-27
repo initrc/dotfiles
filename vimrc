@@ -18,6 +18,10 @@ Bundle 'tpope/vim-fugitive'
 "syntax
 Bundle 'scrooloose/syntastic'
 
+"leader mapping
+let mapleader = ','
+let maplocalleader = '\\'
+
 "YouCompleteMe
 set completeopt=menu,menuone
 set pumheight=10
