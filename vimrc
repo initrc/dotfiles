@@ -7,6 +7,7 @@ filetype plugin indent on
 Bundle 'gmarik/vundle'
 "code completion
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'initrc/eclim-vundle'
 "fancy
 Bundle 'bling/vim-airline'
 "file
