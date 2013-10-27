@@ -22,14 +22,14 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 "airline
 let g:airline_powerline_fonts=1
 
-"nerd tree
+"nerdtree
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+let NERDTreeIgnore = ['\.pyc$']
 
 "ctrlp
 let g:ctrlp_map = '//'
 let g:ctrlp_working_path_mode = 'ra'
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.jpg,*.png,*.gif
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = 'find %s -type f'
 
@@ -91,3 +91,6 @@ nnoremap <silent> gx :wincmd x<CR>
 " last command
 nmap <F8> <Esc>:w<CR>:!%:p<CR>
 imap <F8> <Esc>:w<CR>:!%:p<CR>
+
+"ignore
+set wildignore=*/tmp/*,*.pyc,*.o,*~,*.so,*.swp,*.zip,*.jpg,*.png,*.gif
