@@ -6,8 +6,8 @@ call vundle#rc()
 filetype plugin indent on
 Bundle 'gmarik/vundle'
 "code completion
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'initrc/eclim-vundle'
+"Bundle 'Valloric/YouCompleteMe'
+"Bundle 'initrc/eclim-vundle'
 "fancy
 Bundle 'bling/vim-airline'
 "file
@@ -28,9 +28,11 @@ set pumheight=10
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <silent> <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"start eclipse or run $eclipse_home/eclimd &
+
+"eclim
+"let g:EclimCompletionMethod = 'omnifunc'
+"start eclipse or run $eclipse_home/eclimd & > /dev/null 2>&1
 ":CreateProject <path> -n java
-let g:EclimCompletionMethod = 'omnifunc'
 
 "airline
 let g:airline_powerline_fonts=1
