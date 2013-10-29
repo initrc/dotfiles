@@ -8,9 +8,9 @@ Bundle 'gmarik/vundle'
 "code completion
 "Bundle 'Valloric/YouCompleteMe'
 "Bundle 'initrc/eclim-vundle'
-"fancy
+"fancy status
 Bundle 'bling/vim-airline'
-"file
+"file navigation
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 "git
@@ -18,21 +18,21 @@ Bundle 'tpope/vim-fugitive'
 "syntax
 Bundle 'scrooloose/syntastic'
 
-"leader mapping
+"leader
 let mapleader = ','
 let maplocalleader = '\\'
 
 "YouCompleteMe
-set completeopt=menu,menuone
-set pumheight=10
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-nnoremap <silent> <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"set completeopt=menu,menuone
+"set pumheight=10
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+"nnoremap <silent> <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "eclim
 "let g:EclimCompletionMethod = 'omnifunc'
-"start eclipse or run $eclipse_home/eclimd & > /dev/null 2>&1
-":CreateProject <path> -n java
+""start eclipse or run $eclipse_home/eclimd & > /dev/null 2>&1
+"":CreateProject <path> -n java
 
 "airline
 let g:airline_powerline_fonts=1
@@ -93,14 +93,15 @@ au BufNewFile,BufRead *.vim,*.html,*.css,*.js set shiftwidth=2
 set fileencodings=utf-8,gb2312,gbk,gb18030
 
 "mapping
-" esc is too far away
+
+"esc is too far away
 inoremap jk <Esc>
-" H and L for head and end of line
+"H and L for start and end of line
 nnoremap H ^
 nnoremap L $
-" U to redo
+"U to redo
 nnoremap U <C-r>
-" window
+"window
 nnoremap <silent> gh :wincmd h<CR>
 nnoremap <silent> gj :wincmd j<CR>
 nnoremap <silent> gk :wincmd k<CR>
@@ -108,9 +109,8 @@ nnoremap <silent> gl :wincmd l<CR>
 nnoremap <silent> gp :wincmd p<CR>
 nnoremap <silent> g= :wincmd =<CR>
 nnoremap <silent> gx :wincmd x<CR>
-" last command
-nmap <F8> <Esc>:w<CR>:!%:p<CR>
-imap <F8> <Esc>:w<CR>:!%:p<CR>
+"last command
+noremap <F8> <Esc>:w<CR>:!%:p<CR>
 
 "ignore
 set wildignore=*/tmp/*,*.pyc,*.o,*~,*.so,*.swp,*.zip,*.jpg,*.png,*.gif
