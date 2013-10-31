@@ -15,6 +15,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 "git
 Bundle 'tpope/vim-fugitive'
+"search
+Bundle 'rking/ag.vim'
 "syntax
 Bundle 'scrooloose/syntastic'
 
