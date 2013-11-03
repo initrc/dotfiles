@@ -7,6 +7,8 @@ filetype plugin indent on
 Bundle 'gmarik/vundle'
 "fancy status
 Bundle 'bling/vim-airline'
+"format
+Bundle 'initrc/neinspace'
 "file navigation
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
@@ -23,6 +25,9 @@ let maplocalleader = '\\'
 
 "airline
 let g:airline_powerline_fonts=1
+
+"neinspace
+nnoremap <silent> <leader>w :NeinspaceClear<CR>
 
 "nerdtree
 autocmd vimenter * if !argc() | NERDTree | endif
