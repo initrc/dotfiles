@@ -5,9 +5,6 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 filetype plugin indent on
 Bundle 'gmarik/vundle'
-"code completion
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'initrc/eclim-vundle'
 "fancy status
 Bundle 'bling/vim-airline'
 "file navigation
@@ -23,18 +20,6 @@ Bundle 'scrooloose/syntastic'
 "leader
 let mapleader = ','
 let maplocalleader = '\\'
-
-"YouCompleteMe
-"set completeopt=menu,menuone
-"set pumheight=10
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
-"nnoremap <silent> <leader>d :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
-"eclim
-"let g:EclimCompletionMethod = 'omnifunc'
-""start eclipse or run $eclipse_home/eclimd & > /dev/null 2>&1
-"":CreateProject <path> -n java
 
 "airline
 let g:airline_powerline_fonts=1
