@@ -20,8 +20,8 @@ Bundle 'rking/ag.vim'
 Bundle 'scrooloose/syntastic'
 
 "leader
-let mapleader = ','
-let maplocalleader = '\\'
+let mapleader=','
+let maplocalleader='\\'
 
 "airline
 let g:airline_powerline_fonts=1
@@ -32,14 +32,14 @@ nnoremap <silent> <leader>w :NeinspaceClear<CR>
 "nerdtree
 autocmd vimenter * if !argc() | NERDTree | endif
 autocmd bufenter * if (winnr('$') == 1 && exists('b:NERDTreeType') && b:NERDTreeType == 'primary') | q | endif
-let NERDTreeIgnore = ['\.pyc$', '\.class$']
+let NERDTreeIgnore=['\.pyc$', '\.class$']
 nnoremap <silent> <leader>f :NERDTreeToggle<CR>
 
 "ctrlp
-let g:ctrlp_map = '//'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_user_command = 'find %s -type f'
+let g:ctrlp_map='//'
+let g:ctrlp_working_path_mode='ra'
+let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_user_command='find %s -type f'
 
 "syntastic
 let g:syntastic_check_on_open=1
