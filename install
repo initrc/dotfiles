@@ -1,13 +1,13 @@
 #!/bin/bash
 
-DIR="$( cd "$( dirname "$0" )" && pwd )"
+dir="$( cd "$( dirname "$0" )" && pwd )"
 
 function link() {
-    SOURCE=$DIR/$1/$2
-    TARGET=~/.$2
-    [[ -h "$TARGET" ]] && rm $TARGET
-    ln -s $SOURCE $TARGET
-    echo "linked $2"
+    src=$dir/$1/$2
+    tgt=~/.$2
+    [ -h $tgt ] && rm $tgt
+    ln -s $src $tgt
+    [ $? -eq 0 ] && echo "[OK] link $2" || echo "[FAIL] link $2"
 }
 
 function link_files() {
