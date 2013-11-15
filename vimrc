@@ -53,6 +53,9 @@ syn on
 set number
 set laststatus=2
 
+"clipboard
+set clipboard+=unnamed
+
 "tab
 set tabstop=4
 set shiftwidth=4
