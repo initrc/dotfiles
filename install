@@ -3,20 +3,21 @@
 DIR="$( cd "$( dirname "$0" )" && pwd )"
 
 function link() {
-    SOURCE=$DIR/$1
-    TARGET=~/.$1
-    [[ -s "$TARGET" ]] && rm $TARGET
+    SOURCE=$DIR/$1/$2
+    TARGET=~/.$2
+    [[ -h "$TARGET" ]] && rm $TARGET
     ln -s $SOURCE $TARGET
+    echo "linked $2"
 }
 
 function link_files() {
-    link bash_profile
-    link bashrc
-    link gitignore_global
-    link tmux.conf
-    link tmux-osx.conf
-    link vim
-    link vimrc
+    link bash bash_profile
+    link bash bashrc
+    link git gitignore_global
+    link tmux tmux.conf
+    link tmux tmux-osx.conf
+    link vim vim
+    link vim vimrc
 }
 
 function vim_config() {
