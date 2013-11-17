@@ -14,6 +14,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
 "git
 Bundle 'tpope/vim-fugitive'
+"run code
+Bundle 'initrc/runner'
 "search
 Bundle 'rking/ag.vim'
 "syntax
@@ -40,6 +42,9 @@ let g:ctrlp_map='//'
 let g:ctrlp_working_path_mode='ra'
 let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command='find %s -type f'
+
+"runner
+nnoremap <silent> <leader>r :RunnerRun<CR>
 
 "syntastic
 let g:syntastic_python_checkers=['flake8']
