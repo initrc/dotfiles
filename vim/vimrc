@@ -90,6 +90,8 @@ noremap L $
 "K and J to page up and down
 noremap K <C-b>
 noremap J <C-f>
+"\ to join lines (J)
+noremap \ J
 "U to redo
 nnoremap U <C-r>
 "<leader> q to close
