@@ -94,8 +94,6 @@ noremap J <C-f>M
 noremap \ J
 "U to redo
 nnoremap U <C-r>
-"<leader> q to close
-nnoremap <leader>q :q<CR>
 "window
 nnoremap <silent> gh :wincmd h<CR>
 nnoremap <silent> gj :wincmd j<CR>
