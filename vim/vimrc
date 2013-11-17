@@ -88,8 +88,8 @@ inoremap jk <Esc>
 noremap H ^
 noremap L $
 "K and J to page up and down
-noremap K <C-b>
-noremap J <C-f>
+noremap K <C-b>M
+noremap J <C-f>M
 "\ to join lines (J)
 noremap \ J
 "U to redo
