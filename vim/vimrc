@@ -90,8 +90,8 @@ nnoremap H ^
 nnoremap L $
 "U to redo
 nnoremap U <C-r>
-"D to close
-nnoremap D :q<CR>
+"K to close
+nnoremap K :q<CR>
 "window
 nnoremap <silent> gh :wincmd h<CR>
 nnoremap <silent> gj :wincmd j<CR>
