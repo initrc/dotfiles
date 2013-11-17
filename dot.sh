@@ -35,6 +35,7 @@ function dot-vim() { # setup vim and install plugins
     link vim vimrc
     dir="$HOME/.vim/bundle/vundle"
     clone-or-pull https://github.com/gmarik/vundle.git $dir
+    vim +BundleInstall +qall
     [[ $? -eq 0 ]] && echo "[OK] Vim updated"
 }
 
