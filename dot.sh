@@ -22,6 +22,7 @@ function dot-link() { # link bash, vim, tmux, and git config files
 }
 
 function link {
+    # $1 category, $2 file to link
     src="$PWD/$1/$2"
     tgt="$HOME/.$2"
     [[ -h "$tgt" ]] && rm $tgt
