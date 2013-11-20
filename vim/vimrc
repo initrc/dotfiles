@@ -107,8 +107,6 @@ nnoremap <silent> gl :wincmd l<CR>
 nnoremap <silent> gp :wincmd p<CR>
 nnoremap <silent> g= :wincmd =<CR>
 nnoremap <silent> gx :wincmd x<CR>
-"last command
-noremap <F8> <Esc>:w<CR>:!%:p<CR>
 
 "ignore
 set wildignore=*/tmp/*,*.pyc,*.o,*~,*.so,*.swp,*.zip,*.jpg,*.png,*.gif
