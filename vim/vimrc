@@ -7,11 +7,11 @@ filetype plugin indent on
 Bundle 'gmarik/vundle'
 "fancy status
 Bundle 'bling/vim-airline'
-"format
-Bundle 'initrc/neinspace'
 "file navigation
 Bundle 'scrooloose/nerdtree'
 Bundle 'kien/ctrlp.vim'
+"format
+Bundle 'initrc/neinspace'
 "git
 Bundle 'tpope/vim-fugitive'
 "run code
