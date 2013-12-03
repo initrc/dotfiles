@@ -3,8 +3,7 @@
 export PS1="\u\[\033[1;32m\]:\w \[\033[00m\]"
 
 # path
-PATH="/usr/local/bin:$PATH:$HOME/.rvm/bin"
-export PATH
+export PATH="/usr/local/bin:$PATH"
 
 # source
 [ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
@@ -12,6 +11,7 @@ export PATH
 
 # python
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PATH="$HOME/.pyenv/shims:$PATH"
 
 # alias
 alias s='cd ..'
