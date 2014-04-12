@@ -72,6 +72,7 @@ set expandtab
 set ai
 set autoindent
 set smartindent
+au FileType python setl nosmartindent
 filetype plugin indent on
 
 "search
