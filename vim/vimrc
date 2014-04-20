@@ -111,6 +111,8 @@ nnoremap <silent> gl :wincmd l<CR>
 nnoremap <silent> gp :wincmd p<CR>
 nnoremap <silent> g= :wincmd =<CR>
 nnoremap <silent> gx :wincmd x<CR>
+"paste
+nnoremap <silent> <leader>p :set paste!<CR>
 
 "ignore
 set wildignore=*/tmp/*,*.pyc,*.o,*~,*.so,*.swp,*.zip,*.jpg,*.png,*.gif
