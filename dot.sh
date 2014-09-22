@@ -19,6 +19,7 @@ function dot-link() { # link bash, vim, tmux, and git config files
     link tmux tmux.conf
     link tmux tmux-osx.conf
     link git gitignore_global
+    link ../ scm_breeze
 }
 
 function link {
@@ -46,7 +47,7 @@ function dot-git() { # setup git and install plugins
     git config --global alias.purr "pull --rebase"
     git config --global core.excludesfile ~/.gitignore_global
 
-    dir="$HOME/git/scm_breeze"
+    dir="$HOME/code/scm_breeze"
     clone-or-pull git://github.com/ndbroadbent/scm_breeze.git $dir
     [[ $? -eq 0 ]] && echo "[OK] Git updated"
 }
