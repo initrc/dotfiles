@@ -57,7 +57,7 @@ nnoremap <silent> <leader>s :set spell!<CR>
 
 "ui
 let &t_Co=256
-colorscheme mustang
+colorscheme spring
 syn on
 set number
 set laststatus=2
