@@ -73,10 +73,11 @@ function dot-mac() { # setup mac keyboard repeat rate
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
 }
 
-function dot-brew-install() { # brew install tools
+function dot-install() { # install tools
     brew install git
     brew install macvim --override-system-vim
     brew install tmux
     brew install tree
+    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 }
 
