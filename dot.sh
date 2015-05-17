@@ -70,7 +70,7 @@ function clone-or-pull() {
 function dot-zsh() { # setup zshrc
     safe-append $HOME/.zshrc "source ~/.shrc"
     safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
-    safe-append $HOME/.zshrc "DEFAULT_USER=\"david\""
+    safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
     echo "[OK] Please move the theme config to the top of zshrc"
 }
 
