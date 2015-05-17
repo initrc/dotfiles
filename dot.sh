@@ -11,11 +11,10 @@ else
     echo "[OK] Functions loaded"
 fi
 
-function dot-link() { # link bash, vim, tmux, and git config files
-    link bash bash_profile
-    link bash bashrc
-    link zsh shrc
-    link zsh zshrc
+function dot-link() { # link bash, zsh, vim, tmux, and git config files
+    link sh bash_profile
+    link sh bashrc
+    link sh shrc
     link vim vim
     link vim vimrc
     link tmux tmux.conf
@@ -65,6 +64,20 @@ function clone-or-pull() {
     else
         echo "git clone $1 $2"
         git clone $1 $2
+    fi
+}
+
+function dot-zsh() { # setup zshrc
+    safe-append $HOME/.zshrc "source ~/.shrc"
+    safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
+    safe-append $HOME/.zshrc "DEFAULT_USER=\"david\""
+    echo "[OK] Please move the theme config to the top of zshrc"
+}
+
+function safe-append() {
+    # $1 filename, $2 string to append
+    if [ -s "$1" ] && ! grep -q "$2" "$1"; then
+        echo "$2" >> $1
     fi
 }
 
