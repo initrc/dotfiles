@@ -10,8 +10,8 @@ safe-source $HOME/.shrc_extra
 # python
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-# terminal tab
-function title {
+# terminal tab title
+function title() {
     echo -ne "\033]0;"$*"\007"
 }
 

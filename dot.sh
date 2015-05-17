@@ -23,7 +23,7 @@ function dot-link() { # link bash, zsh, vim, tmux, and git config files
     link ../ scm_breeze
 }
 
-function link {
+function link() {
     # $1 category, $2 file to link
     src="$PWD/$1/$2"
     tgt="$HOME/.$2"
