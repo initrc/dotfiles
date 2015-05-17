@@ -1,0 +1,27 @@
+# source
+function safe-source() { # check existence before source
+    [ -s "$1" ] && source "$1"
+}
+
+safe-source $HOME/.rvm/scripts/rvm
+safe-source $HOME/.scm_breeze/scm_breeze.sh
+safe-source $HOME/.shrc_extra
+
+# python
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# terminal tab
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
+# alias
+alias s='cd ..'
+alias l='ls -al'
+alias f='find . -name'
+if [ "$(uname)" = "Darwin" ]; then
+    alias tmux='tmux -2 -f ~/.tmux-osx.conf'
+else
+    alias tmux='tmux -2'
+    alias ls='ls --color=auto'
+fi

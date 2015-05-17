@@ -3,31 +3,7 @@
 export PS1="\u\[\033[1;32m\]:\w \[\033[00m\]"
 
 # path
-export PATH="/usr/local/bin:$PATH"
+export PATH="$HOME/.pyenv/shims:/usr/local/bin:$PATH"
 
-# source
-[ -s "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+source $HOME/.shrc
 
-# python
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-export PATH="$HOME/.pyenv/shims:$PATH"
-
-# terminal tab
-function title {
-    echo -ne "\033]0;"$*"\007"
-}
-
-# alias
-alias s='cd ..'
-alias l='ls -al'
-alias f='find . -name'
-if [ "$(uname)" == "Darwin" ]; then
-    alias tmux='tmux -2 -f ~/.tmux-osx.conf'
-else
-    alias tmux='tmux -2'
-    alias ls='ls --color=auto'
-fi
-
-# extra alias
-[ -s "$HOME/.bash_extra" ] && source "$HOME/.bash_extra"

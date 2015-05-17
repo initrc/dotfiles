@@ -14,6 +14,7 @@ fi
 function dot-link() { # link bash, vim, tmux, and git config files
     link bash bash_profile
     link bash bashrc
+    link zsh shrc
     link zsh zshrc
     link vim vim
     link vim vimrc
