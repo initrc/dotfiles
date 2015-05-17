@@ -13,6 +13,11 @@ export PATH="/usr/local/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 export PATH="$HOME/.pyenv/shims:$PATH"
 
+# terminal tab
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
 # alias
 alias s='cd ..'
 alias l='ls -al'
