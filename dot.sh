@@ -42,19 +42,19 @@ function safe-append() {
 }
 
 # public functions
-function dot-link() { # link bash, zsh, vim, tmux, and git config files
+function dot-sh() { # install and configure zsh/bash
+    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
     link sh bash_profile
     link sh bashrc
     link sh shrc
-    link vim vim
-    link vim vimrc
-    link tmux tmux.conf
-    link tmux tmux-osx.conf
-    link git gitignore_global
-    link ../ scm_breeze
+    safe-append $HOME/.zshrc "source \$HOME/.shrc"
+    safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
+    safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
+    echo "[OK] Please move the theme config to the top of zshrc"
 }
 
-function dot-vim() { # setup vim and install plugins
+function dot-vim() { # install and configure vim and plugins
+    brew install macvim --override-system-vim
     link vim vim
     link vim vimrc
     dir="$HOME/.vim/bundle/vundle"
@@ -63,7 +63,8 @@ function dot-vim() { # setup vim and install plugins
     [[ $? -eq 0 ]] && echo "[OK] Vim updated"
 }
 
-function dot-git() { # setup git and install plugins
+function dot-git() { # install and configure git and scm_breeze
+    brew install git
     link git gitignore_global
     git config --global color.diff always
     git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -77,23 +78,26 @@ function dot-git() { # setup git and install plugins
     [[ $? -eq 0 ]] && echo "[OK] Git updated"
 }
 
-function dot-zsh() { # setup zshrc
-    safe-append $HOME/.zshrc "source \$HOME/.shrc"
-    safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
-    safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
-    echo "[OK] Please move the theme config to the top of zshrc"
+function dot-tmux() { # install and configure tmux
+    brew install tmux
+    link tmux tmux.conf
+    link tmux tmux-osx.conf
 }
 
-function dot-mac() { # setup mac keyboard repeat rate
+function dot-mac() { # configure osx keyboard repeat rate
     defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
 }
 
-function dot-install() { # install tools
-    brew install git
-    brew install macvim --override-system-vim
-    brew install tmux
-    brew install tree
-    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+function dot-link() { # link all config files
+    link sh bash_profile
+    link sh bashrc
+    link sh shrc
+    link vim vim
+    link vim vimrc
+    link git gitignore_global
+    link tmux tmux.conf
+    link tmux tmux-osx.conf
+    link ../ scm_breeze
 }
 
