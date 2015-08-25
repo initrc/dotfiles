@@ -12,6 +12,15 @@ function title() {
     echo -ne "\033]0;"$*"\007"
 }
 
+# tools
+function curl-grep() { # $1 url, $2 text to grep
+    curl $1 -L -silent | grep $2 | sed 's/<[^>]*>//g'
+}
+
+function curl-grep-notify() { # $1 url, $2 text to grep, $3 notification title
+    osascript -e "display notification \"$(curl-grep $1 $2)\" with title \"$3\""
+}
+
 # alias
 alias s='cd ..'
 alias l='ls -al'
