@@ -87,6 +87,7 @@ function dot-tmux() { # install and configure tmux
 function dot-mac() { # configure osx keyboard repeat rate
     defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
+    defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
 }
 
 function dot-link() { # link all config files
