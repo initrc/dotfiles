@@ -99,6 +99,5 @@ function dot-link() { # link all config files
     link git gitignore_global
     link tmux tmux.conf
     link tmux tmux-osx.conf
-    link ../ scm_breeze
 }
 
