@@ -1,0 +1,14 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Terminal Runner'
+      'submenu': [
+        { 'label': 'Run Command', 'command': 'terminal-runner:run-command' }
+        { 'label': 'Run Last Command', 'command': 'terminal-runner:run-last-command' },
+      ]
+    ]
+  }
+]
