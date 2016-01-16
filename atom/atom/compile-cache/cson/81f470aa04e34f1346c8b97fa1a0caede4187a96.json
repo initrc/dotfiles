@@ -1,1 +1,0 @@
-{"atom-text-editor.vim-mode:not(.insert-mode)":{"H":"vim-mode:move-to-first-character-of-line","L":"vim-mode:move-to-last-character-of-line","g h":"window:focus-pane-on-left","g l":"window:focus-pane-on-right","g k":"window:focus-pane-above","g j":"window:focus-pane-below"}}

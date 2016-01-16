@@ -30,6 +30,8 @@
     tabLength: 4
   "exception-reporting":
     userId: "3e2d3d7c-c153-07d7-409d-6f76dfc1d811"
+  "git-blame": {}
+  "git-plus": {}
   linter:
     showErrorPanel: false
     showErrorTabFile: false
