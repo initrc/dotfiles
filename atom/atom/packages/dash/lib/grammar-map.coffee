@@ -172,6 +172,7 @@ module.exports =
     'jade'
   ].concat(web)
   'Java': [
+    'android',
     'java',
     'javafx',
     'grails',
