@@ -101,7 +101,7 @@ class StatusBar extends View
     @subscriptions.add dispose: ->
       window.removeEventListener 'focus', handleFocus
 
-    @attach()
+    # @attach() # hide status bar
 
   registerContextMenu: ->
     @subscriptions.add atom.commands.add '.terminal-plus.status-bar',
