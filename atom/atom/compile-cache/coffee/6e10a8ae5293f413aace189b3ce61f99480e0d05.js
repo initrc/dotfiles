@@ -1,0 +1,92 @@
+(function() {
+  var $, $$, Fs, OS, Path, Utils, View, _, _ref,
+    __slice = [].slice;
+
+  _ = require('underscore-plus');
+
+  Path = require('path');
+
+  Fs = require('fs-plus');
+
+  OS = require('os');
+
+  _ref = require('space-pen'), $ = _ref.$, $$ = _ref.$$, View = _ref.View;
+
+  Utils = {
+    getFontWidth: function(text, font) {
+      var o, w;
+      font = font || $('body').css('font');
+      o = $('<div>' + text + '</div>').css({
+        'position': 'absolute',
+        'float': 'left',
+        'white-space': 'nowrap',
+        'visibility': 'hidden',
+        'font': font
+      }).appendTo($('body'));
+      w = o.width();
+      o.remove();
+      return w;
+    },
+    getFontHeight: function(text, font) {
+      var h, o;
+      font = font || $('body').css('font');
+      o = $('<div>' + text + '</div>').css({
+        'position': 'absolute',
+        'float': 'left',
+        'white-space': 'nowrap',
+        'visibility': 'hidden',
+        'font': font
+      }).appendTo($('body'));
+      h = o.height();
+      o.remove();
+      return h;
+    },
+    getHomeDir: function() {
+      return Fs.getHomeDirectory();
+    },
+    geTmpDir: function() {
+      return OS.tmpdir();
+    },
+    getProjectDir: function() {
+      var _ref1;
+      return (_ref1 = atom.project.getPaths()[0]) != null ? _ref1 : Fs.getHomeDirectory();
+    },
+    getCurrentDir: function() {
+      var editor;
+      editor = atom.workspace.getActiveTextEditor();
+      if (editor != null) {
+        return Path.dirname(editor.getPath());
+      }
+      return null;
+    },
+    getCurrentFile: function() {
+      var editor;
+      editor = atom.workspace.getActiveTextEditor();
+      if (editor != null) {
+        return editor.getPath();
+      }
+      return null;
+    },
+    resolve: function() {
+      var a, args;
+      args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+      args = (function() {
+        var _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = args.length; _i < _len; _i++) {
+          a = args[_i];
+          _results.push(Fs.normalize(a));
+        }
+        return _results;
+      })();
+      return Path.resolve.apply(Path, args);
+    }
+  };
+
+  module.exports = Utils;
+
+}).call(this);
+
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAiZmlsZSI6ICIiLAogICJzb3VyY2VSb290IjogIiIsCiAgInNvdXJjZXMiOiBbCiAgICAiL1VzZXJzL2RzaGkvY29kZS9kb3RmaWxlcy9hdG9tL2F0b20vcGFja2FnZXMvdGVybXJrL2xpYi91dGlscy5jb2ZmZWUiCiAgXSwKICAibmFtZXMiOiBbXSwKICAibWFwcGluZ3MiOiAiQUFLQTtBQUFBLE1BQUEseUNBQUE7SUFBQSxrQkFBQTs7QUFBQSxFQUFBLENBQUEsR0FBTyxPQUFBLENBQVEsaUJBQVIsQ0FBUCxDQUFBOztBQUFBLEVBQ0EsSUFBQSxHQUFPLE9BQUEsQ0FBUSxNQUFSLENBRFAsQ0FBQTs7QUFBQSxFQUVBLEVBQUEsR0FBTyxPQUFBLENBQVEsU0FBUixDQUZQLENBQUE7O0FBQUEsRUFHQSxFQUFBLEdBQU8sT0FBQSxDQUFRLElBQVIsQ0FIUCxDQUFBOztBQUFBLEVBS0EsT0FBZ0IsT0FBQSxDQUFRLFdBQVIsQ0FBaEIsRUFBQyxTQUFBLENBQUQsRUFBSSxVQUFBLEVBQUosRUFBUSxZQUFBLElBTFIsQ0FBQTs7QUFBQSxFQU9BLEtBQUEsR0FFSTtBQUFBLElBQUEsWUFBQSxFQUFjLFNBQUMsSUFBRCxFQUFPLElBQVAsR0FBQTtBQUNWLFVBQUEsSUFBQTtBQUFBLE1BQUEsSUFBQSxHQUFPLElBQUEsSUFBUSxDQUFBLENBQUUsTUFBRixDQUFTLENBQUMsR0FBVixDQUFjLE1BQWQsQ0FBZixDQUFBO0FBQUEsTUFDQSxDQUFBLEdBQUksQ0FBQSxDQUFFLE9BQUEsR0FBVSxJQUFWLEdBQWlCLFFBQW5CLENBQ0osQ0FBQyxHQURHLENBQ0M7QUFBQSxRQUNELFVBQUEsRUFBWSxVQURYO0FBQUEsUUFFRCxPQUFBLEVBQVMsTUFGUjtBQUFBLFFBR0QsYUFBQSxFQUFlLFFBSGQ7QUFBQSxRQUlELFlBQUEsRUFBYyxRQUpiO0FBQUEsUUFLRCxNQUFBLEVBQVEsSUFMUDtPQURELENBT0osQ0FBQyxRQVBHLENBT00sQ0FBQSxDQUFFLE1BQUYsQ0FQTixDQURKLENBQUE7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
+
+//# sourceURL=/Users/dshi/code/dotfiles/atom/atom/packages/termrk/lib/utils.coffee
