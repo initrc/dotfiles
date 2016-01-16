@@ -35,8 +35,8 @@
   "homepage": "https://github.com/facebooknuclideapm/nuclide-move-pane#readme",
   "_id": "nuclide-move-pane@0.0.35",
   "_shasum": "b6ffa4dbe66cdabca014b289ef2bd7125354b192",
-  "_resolved": "file:../d-116015-15535-1bsm6q5/package.tgz",
-  "_from": "../d-116015-15535-1bsm6q5/package.tgz",
+  "_resolved": "file:../d-116016-62823-caks1/package.tgz",
+  "_from": "../d-116016-62823-caks1/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

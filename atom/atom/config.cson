@@ -1,5 +1,6 @@
 "*":
   "atom-terminal-panel": {}
+  blame: {}
   "block-cursor":
     global:
       blinkOff:
@@ -18,18 +19,27 @@
         borderStyle: "bordered-box"
       pulseDuration: 500
   core:
+    disabledPackages: [
+      "tree-view"
+    ]
     ignoredNames: [
       ".git"
       ".svn"
       ".DS_Store"
     ]
+    themes: [
+      "one-dark-ui"
+      "spring-dark-syntax"
+    ]
   editor:
-    fontSize: 13
+    fontSize: 12
     invisibles: {}
     softWrapAtPreferredLineLength: true
     tabLength: 4
   "exception-reporting":
     userId: "3e2d3d7c-c153-07d7-409d-6f76dfc1d811"
+  "file-watcher":
+    promptWhenFileHasChangedOnDisk: false
   "git-blame": {}
   "git-plus": {}
   linter:
@@ -41,6 +51,17 @@
     classpath: "~/Library/Android/sdk/sources/android-23/"
   metrics:
     userId: "64eb1d7fbc403717c9204d1424da098d72b85cc7"
+  nuclide:
+    "nuclide-arcanist": {}
+    "nuclide-buck-files": {}
+    "nuclide-debugger-hhvm": {}
+    "nuclide-flow": {}
+    "nuclide-format-js": {}
+    "nuclide-health": {}
+    "nuclide-home":
+      showHome: false
+    "nuclide-ocaml": {}
+  "one-dark-ui": {}
   "quick-highlight": {}
   "release-notes":
     viewedVersion: "0.80.0"
