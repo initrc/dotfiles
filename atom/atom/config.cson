@@ -30,7 +30,11 @@
     tabLength: 4
   "exception-reporting":
     userId: "3e2d3d7c-c153-07d7-409d-6f76dfc1d811"
-  linter: {}
+  linter:
+    showErrorPanel: false
+    showErrorTabFile: false
+    showErrorTabProject: false
+    statusIconScope: "File"
   "linter-javac":
     classpath: "~/Library/Android/sdk/sources/android-23/"
   metrics:
