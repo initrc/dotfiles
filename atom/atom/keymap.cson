@@ -42,8 +42,5 @@
   'ctrl-v': 'pane:split-right'
   'ctrl-s': 'pane:split-down'
 
-'atom-workspace':
-  'cmd-`': 'terminal-status:toggle'
-
 '.platform-darwin atom-workspace':
   'cmd-`': 'terminal-plus:toggle'

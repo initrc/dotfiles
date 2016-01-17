@@ -19,9 +19,6 @@
         borderStyle: "bordered-box"
       pulseDuration: 500
   core:
-    disabledPackages: [
-      "tree-view"
-    ]
     ignoredNames: [
       ".git"
       ".svn"
