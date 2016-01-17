@@ -18,7 +18,21 @@ function curl-grep() { # $1 url, $2 text to grep
 }
 
 function curl-grep-notify() { # $1 url, $2 text to grep, $3 notification title
-    osascript -e "display notification \"$(curl-grep $1 $2)\" with title \"$3\""
+    notify $3 $(curl-grep $1 $2)
+}
+
+function notify() { # $1 title, $2 text
+    osascript -e "display notification \"$2\" with title \"$1\""
+}
+
+function android-push() {
+    start=`date +%s`
+    ./gradlew installDevfastDebug
+    end=`date +%s`
+    text="Built in $((end - start)) s"
+    [[ $? -eq 0 ]] \
+        && adb shell am start -n com.pinterest.dev/com.pinterest.activity.PinterestActivity \
+        && notify "Success" $text || notify "Fail" $text
 }
 
 # alias
