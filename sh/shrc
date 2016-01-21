@@ -28,9 +28,10 @@ function notify() { # $1 title, $2 text
 function android-push() {
     start=`date +%s`
     ./gradlew installDevfastDebug
+    result=$?
     end=`date +%s`
     text="Built in $((end - start)) s"
-    [[ $? -eq 0 ]] \
+    [[ $result -eq 0 ]] \
         && adb shell am start -n com.pinterest.dev/com.pinterest.activity.PinterestActivity \
         && notify "Success" $text || notify "Fail" $text
 }
