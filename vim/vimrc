@@ -66,6 +66,7 @@ colorscheme spring
 syn on
 set number
 set laststatus=2
+set visualbell
 
 "clipboard
 set clipboard+=unnamed
