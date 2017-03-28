@@ -7,6 +7,10 @@ safe-source $HOME/.rvm/scripts/rvm
 safe-source $HOME/.scm_breeze/scm_breeze.sh
 safe-source $HOME/.shrc_extra
 
+# colors
+LS_COLORS='ow=01;36'
+export LS_COLORS
+
 # terminal tab title
 function title() {
     echo -ne "\033]0;"$*"\007"
