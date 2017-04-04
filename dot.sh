@@ -72,9 +72,9 @@ function dot-git() { # install and configure git and scm_breeze
     git config --global alias.feature "checkout --track origin/master -b"
     git config --global core.excludesfile $HOME/.gitignore_global
 
-    dir="$HOME/code/scm_breeze"
+    dir="$HOME/.scm_breeze"
     clone-or-pull git://github.com/ndbroadbent/scm_breeze.git $dir
-    link ../ scm_breeze
+    $dir/install.sh
     [[ $? -eq 0 ]] && echo "[OK] Git updated"
 }
 
