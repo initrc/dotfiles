@@ -67,6 +67,7 @@ syn on
 set number
 set laststatus=2
 set visualbell
+hi MatchParen cterm=bold ctermbg=none ctermfg=red
 
 "clipboard
 set clipboard+=unnamed
