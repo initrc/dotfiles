@@ -54,7 +54,6 @@ function dot-sh() { # install and configure zsh/bash
 }
 
 function dot-vim() { # install and configure vim and plugins
-    brew install macvim --override-system-vim
     link vim vim
     link vim vimrc
     dir="$HOME/.vim/bundle/vundle"
@@ -64,7 +63,6 @@ function dot-vim() { # install and configure vim and plugins
 }
 
 function dot-git() { # install and configure git and scm_breeze
-    brew install git
     link git gitignore_global
     git config --global color.diff always
     git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -79,9 +77,14 @@ function dot-git() { # install and configure git and scm_breeze
 }
 
 function dot-tmux() { # install and configure tmux
-    brew install tmux
     link tmux tmux.conf
     link tmux tmux-osx.conf
+}
+
+function dot-brew() { # install brew packages
+    brew install macvim --override-system-vim
+    brew install git
+    brew install tmux
 }
 
 function dot-mac() { # configure osx keyboard repeat rate
