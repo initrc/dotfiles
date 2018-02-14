@@ -42,15 +42,10 @@ function safe-append() {
 }
 
 # public functions
-function dot-sh() { # install and configure zsh/bash
-    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-    link sh bash_profile
-    link sh bashrc
-    link sh shrc
-    safe-append $HOME/.zshrc "source \$HOME/.shrc"
-    safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
-    safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
-    echo "[OK] Please move the theme config to the top of zshrc"
+function dot-brew() { # install brew packages
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install macvim --with-override-system-vim
+    brew install git
 }
 
 function dot-vim() { # install and configure vim and plugins
@@ -59,7 +54,22 @@ function dot-vim() { # install and configure vim and plugins
     dir="$HOME/.vim/bundle/vundle"
     clone-or-pull https://github.com/gmarik/vundle.git $dir
     vim +BundleInstall +qall
-    [[ $? -eq 0 ]] && echo "[OK] Vim updated"
+    [[ $? -eq 0 ]] && echo "[OK] Vim configured"
+}
+
+function dot-sh() { # install and configure zsh/bash
+    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+    link sh bash_profile
+    link sh bashrc
+    link sh shrc
+    safe-append $HOME/.zshrc "source \$HOME/.shrc"
+    safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
+    safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
+    [[ $? -eq 0 ]] && echo "[OK] Zsh configured"
+    echo "- [~/.zshrc] Move the theme config to the top"
+    echo "- [~/.zshrc] DISABLE_AUTO_TITLE=\"true\""
+    echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] %s/blue/magenta/g"
+    echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove RETVAL from build_prompt()"
 }
 
 function dot-git() { # install and configure git and scm_breeze
@@ -73,24 +83,16 @@ function dot-git() { # install and configure git and scm_breeze
     dir="$HOME/.scm_breeze"
     clone-or-pull git://github.com/ndbroadbent/scm_breeze.git $dir
     $dir/install.sh
-    [[ $? -eq 0 ]] && echo "[OK] Git updated"
+    [[ $? -eq 0 ]] && echo "[OK] Git configured"
+    echo "- git config --global user.name \"...\""
+    echo "- git config --global user.email ...@..."
 }
 
-function dot-tmux() { # install and configure tmux
-    link tmux tmux.conf
-    link tmux tmux-osx.conf
-}
-
-function dot-brew() { # install brew packages
-    brew install macvim --override-system-vim
-    brew install git
-    brew install tmux
-}
-
-function dot-mac() { # configure osx keyboard repeat rate
+function dot-mac() { # configure macOS settings
     defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
     defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
+    [[ $? -eq 0 ]] && echo "[OK] Mac configured"
 }
 
 function dot-link() { # link all config files
