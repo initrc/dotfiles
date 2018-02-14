@@ -4,20 +4,25 @@
 if [[ $0 == ${BASH_SOURCE} ]]; then
     echo -e "Usage: source $0\n"
 else
-    echo "[OK] Functions loaded"
+    green-echo "[OK] Functions loaded"
 fi
 cat $0 | grep "^function dot" \
     | sed "s/^function \(dot-[a-zA-Z0-9-]*\)()[ ]*{[ ]*#[ ]*\(.*$\)/\1:\2/g" \
     | awk '{split($0, a, ":"); printf("%-20s: %s\n", a[1], a[2])}'
 
 # helper functions
+function green-echo() {
+    # $1 text to echo
+    echo -e "\e[32m$1\e[39m"
+}
+
 function link() {
     # $1 category, $2 file to link
     src="$PWD/$1/$2"
     tgt="$HOME/.$2"
     [[ -h "$tgt" ]] && rm $tgt
     ln -s $src $tgt
-    [[ $? -eq 0 ]] && echo "[OK] Link $2" || echo "[FAIL] Link $2"
+    [[ $? -eq 0 ]] && green-echo "[OK] Link $2" || echo "[FAIL] Link $2"
 }
 
 function clone-or-pull() {
@@ -53,7 +58,7 @@ function dot-vim() { # configure vim and plugins
     dir="$HOME/.vim/bundle/vundle"
     clone-or-pull https://github.com/gmarik/vundle.git $dir
     vim +BundleInstall +qall
-    [[ $? -eq 0 ]] && echo "[OK] Vim configured"
+    [[ $? -eq 0 ]] && green-echo "[OK] Vim configured"
 }
 
 function dot-sh() { # configure zsh/oh-my-zsh/bash
@@ -64,7 +69,7 @@ function dot-sh() { # configure zsh/oh-my-zsh/bash
     safe-append $HOME/.zshrc "source \$HOME/.shrc"
     safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
     safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
-    [[ $? -eq 0 ]] && echo "[OK] Zsh configured"
+    [[ $? -eq 0 ]] && green-echo "[OK] Zsh configured"
     echo "- [~/.zshrc] Move the theme config to the top"
     echo "- [~/.zshrc] DISABLE_AUTO_TITLE=\"true\""
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] %s/blue/magenta/g"
@@ -82,7 +87,7 @@ function dot-git() { # configure git and scm_breeze
     dir="$HOME/.scm_breeze"
     clone-or-pull git://github.com/ndbroadbent/scm_breeze.git $dir
     $dir/install.sh
-    [[ $? -eq 0 ]] && echo "[OK] Git configured"
+    [[ $? -eq 0 ]] && green-echo "[OK] Git configured"
     echo "- git config --global user.name \"...\""
     echo "- git config --global user.email ...@..."
 }
@@ -91,7 +96,7 @@ function dot-mac() { # configure macOS settings
     defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
     defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
-    [[ $? -eq 0 ]] && echo "[OK] Mac configured"
+    [[ $? -eq 0 ]] && green-echo "[OK] Mac configured"
 }
 
 function link-all() { # link all config files
