@@ -2,14 +2,13 @@
 
 # show usage if not run via 'source'
 if [[ $0 == ${BASH_SOURCE} ]]; then
-    echo -e "\nUsage: source $0\n"
-    cat $0 | grep "^function dot" \
-        | sed "s/^function \(dot-[a-zA-Z0-9-]*\)()[ ]*{[ ]*#[ ]*\(.*$\)/\1:\2/g" \
-        | awk '{split($0, a, ":"); printf("%-20s: %s\n", a[1], a[2])}'
-    echo ""
+    echo -e "Usage: source $0\n"
 else
     echo "[OK] Functions loaded"
 fi
+cat $0 | grep "^function dot" \
+    | sed "s/^function \(dot-[a-zA-Z0-9-]*\)()[ ]*{[ ]*#[ ]*\(.*$\)/\1:\2/g" \
+    | awk '{split($0, a, ":"); printf("%-20s: %s\n", a[1], a[2])}'
 
 # helper functions
 function link() {
@@ -48,7 +47,7 @@ function dot-brew() { # install brew packages
     brew install git
 }
 
-function dot-vim() { # install and configure vim and plugins
+function dot-vim() { # configure vim and plugins
     link vim vim
     link vim vimrc
     dir="$HOME/.vim/bundle/vundle"
@@ -57,7 +56,7 @@ function dot-vim() { # install and configure vim and plugins
     [[ $? -eq 0 ]] && echo "[OK] Vim configured"
 }
 
-function dot-sh() { # install and configure zsh/bash
+function dot-sh() { # configure zsh/oh-my-zsh/bash
     curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
     link sh bash_profile
     link sh bashrc
@@ -72,7 +71,7 @@ function dot-sh() { # install and configure zsh/bash
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove RETVAL from build_prompt()"
 }
 
-function dot-git() { # install and configure git and scm_breeze
+function dot-git() { # configure git and scm_breeze
     link git gitignore_global
     git config --global color.diff always
     git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -95,7 +94,7 @@ function dot-mac() { # configure macOS settings
     [[ $? -eq 0 ]] && echo "[OK] Mac configured"
 }
 
-function dot-link() { # link all config files
+function link-all() { # link all config files
     link sh bash_profile
     link sh bashrc
     link sh shrc
