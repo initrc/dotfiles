@@ -96,6 +96,7 @@ function dot-mac() { # configure macOS settings
     defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
     defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
+    defaults write -g ApplePressAndHoldEnabled -bool false # intelliJ cursor move around
     [[ $? -eq 0 ]] && green-echo "[OK] Mac configured"
 }
 
