@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# show usage if not run via 'source'
-if [[ $0 == ${BASH_SOURCE} ]]; then
-    echo -e "Usage: source $0\n"
-else
-    green-echo "[OK] Functions loaded"
-fi
-cat $0 | grep "^function dot" \
-    | sed "s/^function \(dot-[a-zA-Z0-9-]*\)()[ ]*{[ ]*#[ ]*\(.*$\)/\1:\2/g" \
-    | awk '{split($0, a, ":"); printf("%-20s: %s\n", a[1], a[2])}'
-
 # helper functions
 function green-echo() {
     # $1 text to echo
@@ -74,6 +64,8 @@ function dot-sh() { # configure zsh/oh-my-zsh/bash
     echo "- [~/.zshrc] DISABLE_AUTO_TITLE=\"true\""
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] %s/blue/magenta/g"
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove RETVAL from build_prompt()"
+    echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove prompt_context from build_prompt()"
+    echo "chsh -s $(which zsh)"
 }
 
 function dot-git() { # configure git and scm_breeze
@@ -112,4 +104,14 @@ function link-all() { # link all config files
     link tmux tmux-osx.conf
     link atom atom/
 }
+
+# show usage if not run via 'source'
+if [[ $0 == ${BASH_SOURCE} ]]; then
+    echo -e "Usage: source $0\n"
+else
+    green-echo "[OK] Functions loaded"
+fi
+cat $0 | grep "^function dot" \
+    | sed "s/^function \(dot-[a-zA-Z0-9-]*\)()[ ]*{[ ]*#[ ]*\(.*$\)/\1:\2/g" \
+    | awk '{split($0, a, ":"); printf("%-20s: %s\n", a[1], a[2])}'
 

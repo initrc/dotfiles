@@ -29,7 +29,7 @@ function notify() { # $1 title, $2 text
     osascript -e "display notification \"$2\" with title \"$1\""
 }
 
-funtion git-hash() { # $1 branch
+function git-hash() { # $1 branch
     git log --oneline $1 | head -n 1 | awk '{print $1}'
 }
 
