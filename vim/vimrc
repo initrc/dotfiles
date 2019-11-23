@@ -92,8 +92,8 @@ set ignorecase
 set smartcase
 
 "tabstop=2
-au BufNewFile,BufRead *.vim,*.html,*.css,*.js set tabstop=2
-au BufNewFile,BufRead *.vim,*.html,*.css,*.js set shiftwidth=2
+au BufNewFile,BufRead *.vim,*.html,*.css,*.js,*.json set tabstop=2
+au BufNewFile,BufRead *.vim,*.html,*.css,*.js,*.json set shiftwidth=2
 
 "encoding
 set fileencodings=utf-8,gb2312,gbk,gb18030
