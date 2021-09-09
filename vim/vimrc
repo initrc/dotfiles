@@ -125,3 +125,8 @@ nnoremap <silent> <leader>p :set paste!<CR>
 
 "ignore
 set wildignore=*/tmp/*,*.pyc,*.o,*~,*.so,*.swp,*.zip,*.jpg,*.png,*.gif
+
+"filetype
+au BufNewFile,BufRead *.kt setfiletype kotlin
+au BufNewFile,BufRead *.kts setfiletype kotlin
+
