@@ -58,7 +58,6 @@ function dot-sh() { # configure zsh/oh-my-zsh/bash
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] %s/blue/magenta/g"
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove RETVAL from build_prompt()"
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove prompt_context from build_prompt()"
-    echo "chsh -s $(which zsh)"
 }
 
 function dot-git() { # configure git and scm_breeze
