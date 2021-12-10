@@ -3,7 +3,6 @@ function safe-source() { # check existence before source
     [ -s "$1" ] && source "$1"
 }
 
-# safe-source $HOME/.rvm/scripts/rvm
 safe-source $HOME/.scm_breeze/scm_breeze.sh
 safe-source $HOME/.shrc_extra
 
