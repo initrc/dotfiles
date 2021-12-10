@@ -36,12 +36,6 @@ function safe-append() {
 }
 
 # public functions
-function dot-brew() { # install brew packages
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew install macvim --with-override-system-vim
-    brew install git
-}
-
 function dot-vim() { # configure vim and plugins
     link vim vim
     link vim vimrc
@@ -52,7 +46,6 @@ function dot-vim() { # configure vim and plugins
 }
 
 function dot-sh() { # configure zsh/oh-my-zsh/bash
-    curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
     link sh bash_profile
     link sh bashrc
     link sh shrc
