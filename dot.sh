@@ -67,7 +67,7 @@ function dot-git() { # configure git and scm_breeze
     git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
     git config --global alias.purr "pull --rebase"
     git config --global alias.feature "checkout --track origin/master -b"
-    git config --global alias.feature "pushf --force-with-release"
+    git config --global alias.pushf "push --force-with-lease"
     git config --global core.excludesfile $HOME/.gitignore_global
 
     dir="$HOME/.scm_breeze"
