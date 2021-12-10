@@ -1,4 +1,4 @@
 dotfiles
 ========
 
-This repo contains dotfiles and scripts
+Run `source dot.sh` to start configure your dev environment.
