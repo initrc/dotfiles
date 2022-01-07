@@ -68,6 +68,7 @@ function dot-git() { # configure git and scm_breeze
     git config --global alias.feature "checkout --track origin/master -b"
     git config --global alias.pushf "push --force-with-lease"
     git config --global core.excludesfile $HOME/.gitignore_global
+    git config --global --add oh-my-zsh.hide-dirty 1
 
     dir="$HOME/.scm_breeze"
     clone-or-pull git://github.com/ndbroadbent/scm_breeze.git $dir
