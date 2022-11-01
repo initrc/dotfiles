@@ -71,7 +71,7 @@ function dot-git() { # configure git and scm_breeze
     git config --global --add oh-my-zsh.hide-dirty 1
 
     dir="$HOME/.scm_breeze"
-    clone-or-pull git://github.com/ndbroadbent/scm_breeze.git $dir
+    clone-or-pull https://github.com/scmbreeze/scm_breeze.git $dir
     $dir/install.sh
     [[ $? -eq 0 ]] && green-echo "[OK] Git configured"
     echo "- git config --global user.name \"...\""
