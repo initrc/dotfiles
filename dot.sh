@@ -73,6 +73,7 @@ function dot-git() { # configure git and scm_breeze
     dir="$HOME/.scm_breeze"
     clone-or-pull https://github.com/scmbreeze/scm_breeze.git $dir
     $dir/install.sh
+    [[ $? -eq 0 ]] && green-echo "[OK] SCM Breeze installed"
     [[ $? -eq 0 ]] && green-echo "[OK] Git configured"
     echo "- git config --global user.name \"...\""
     echo "- git config --global user.email ...@..."
@@ -84,17 +85,6 @@ function dot-mac() { # configure macOS settings
     defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
     defaults write -g ApplePressAndHoldEnabled 0 # intelliJ cursor move around
     [[ $? -eq 0 ]] && green-echo "[OK] Mac configured"
-}
-
-function link-all() { # link all config files
-    link sh bash_profile
-    link sh bashrc
-    link sh shrc
-    link vim vim
-    link vim vimrc
-    link git gitignore_global
-    link tmux tmux.conf
-    link tmux tmux-osx.conf
 }
 
 # show usage if not run via 'source'
