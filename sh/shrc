@@ -54,7 +54,3 @@ else
     alias ls='ls --color=auto'
 fi
 alias ss='adb exec-out screencap -p > ~/Desktop/screenshot-"$( date +%Y.%m.%d-%H.%M.%S )".png'
-
-# python
-eval "$(pyenv init --path)"
-

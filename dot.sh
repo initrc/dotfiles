@@ -36,6 +36,11 @@ function safe-append() {
 }
 
 # public functions
+function dot-linux() { # prerequisite for linux configs
+    sudo apt-get install vim zsh ruby
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
 function dot-vim() { # configure vim and plugins
     link vim vim
     link vim vimrc
@@ -45,10 +50,10 @@ function dot-vim() { # configure vim and plugins
     [[ $? -eq 0 ]] && green-echo "[OK] Vim configured"
 }
 
-function dot-sh() { # configure zsh/oh-my-zsh/bash
-    link sh bash_profile
-    link sh bashrc
+function dot-shell() { # configure zsh/oh-my-zsh
     link sh shrc
+    safe-append $HOME/.bash_profile "source \$HOME/.shrc" #macOS
+    safe-append $HOME/.bashrc "source \$HOME/.shrc"
     safe-append $HOME/.zshrc "source \$HOME/.shrc"
     safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
     safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
@@ -57,7 +62,6 @@ function dot-sh() { # configure zsh/oh-my-zsh/bash
     echo "- [~/.zshrc] DISABLE_AUTO_TITLE=\"true\""
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] %s/blue/magenta/g"
     echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove RETVAL from build_prompt()"
-    echo "- [~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove prompt_context from build_prompt()"
 }
 
 function dot-git() { # configure git and scm_breeze

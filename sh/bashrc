@@ -1,6 +1,0 @@
-# bash prompt
-export PS1="\u\[\033[1;32m\]:\w \[\033[00m\]"
-
-# common bash and zsh rc
-source $HOME/.shrc
-
