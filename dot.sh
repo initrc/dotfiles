@@ -39,7 +39,12 @@ function safe-append() {
 function dot-linux() { # prerequisite for linux configs
     sudo apt-get install vim zsh ruby
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    # keyboard
     link linux Xmodmap && xmodmap ~/.Xmodmap
+    # bluetooth suspend fix
+    sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
+    sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
+    [[ $? -eq 0 ]] && green-echo "[OK] Bluetooth will be stopped upon system suspending"
 }
 
 function dot-vim() { # configure vim and plugins
