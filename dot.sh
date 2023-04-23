@@ -39,6 +39,7 @@ function safe-append() {
 function dot-linux() { # prerequisite for linux configs
     sudo apt-get install vim zsh ruby
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    link linux Xmodmap && xmodmap ~/.Xmodmap
 }
 
 function dot-vim() { # configure vim and plugins
