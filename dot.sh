@@ -37,7 +37,7 @@ function safe-append() {
 
 # public functions
 function dot-linux() { # prerequisite for linux configs
-    sudo apt-get install vim zsh ruby
+    sudo apt-get install vim zsh ruby build-essential aria2 silversearcher-ag
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     # keyboard
     link linux Xmodmap && xmodmap ~/.Xmodmap
