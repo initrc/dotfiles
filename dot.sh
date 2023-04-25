@@ -36,15 +36,35 @@ function safe-append() {
 }
 
 # public functions
-function dot-linux() { # prerequisite for linux configs
+function dot-linux-dep() { # configure linux - dependency
     sudo apt-get install vim zsh ruby build-essential aria2 silversearcher-ag
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    green-echo "[OK] zsh and basic dependencies installed"
+}
+
+function dot-linux() { # configure linux
     # keyboard
     link linux Xmodmap && xmodmap ~/.Xmodmap
     # bluetooth suspend fix
     sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
     sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
     [[ $? -eq 0 ]] && green-echo "[OK] Bluetooth will be stopped upon system suspending"
+}
+
+function dot-mac-dep() { # configure macOS - dependency
+    xcode-select --install
+    green-echo "[OK] Xcode command line tools installed"
+    # https://brew.sh/
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    green-echo "[OK] Brew installed"
+}
+
+function dot-mac() { # configure macOS
+    defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
+    defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
+    defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
+    defaults write -g ApplePressAndHoldEnabled 0 # intelliJ cursor move around
+    [[ $? -eq 0 ]] && green-echo "[OK] Mac configured"
 }
 
 function dot-vim() { # configure vim and plugins
@@ -95,14 +115,6 @@ function dot-python-linux() { # configure python on linux
     libbz2-dev libreadline-dev libsqlite3-dev curl \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
     curl https://pyenv.run | bash
-}
-
-function dot-mac() { # configure macOS settings
-    defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
-    defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
-    defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
-    defaults write -g ApplePressAndHoldEnabled 0 # intelliJ cursor move around
-    [[ $? -eq 0 ]] && green-echo "[OK] Mac configured"
 }
 
 # show usage if not run via 'source'
