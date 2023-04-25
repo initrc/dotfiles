@@ -89,6 +89,14 @@ function dot-git() { # configure git and scm_breeze
     echo "- git config --global user.email ...@..."
 }
 
+function dot-python-linux() { # configure python on linux
+    # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+    sudo apt install build-essential libssl-dev zlib1g-dev \
+    libbz2-dev libreadline-dev libsqlite3-dev curl \
+    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+    curl https://pyenv.run | bash
+}
+
 function dot-mac() { # configure macOS settings
     defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
