@@ -1,7 +1,7 @@
 keycode 108 = Mode_switch
-keysym h = h H Left
-keysym l = l L Right
-keysym k = k K Up
-keysym j = j J Down
-keysym i = i I Home
-keysym o = o O End
+keysym h = h H Left Left
+keysym l = l L Right Right
+keysym k = k K Up Up
+keysym j = j J Down Down
+keysym i = i I Home Home
+keysym o = o O End End
