@@ -73,7 +73,8 @@ function dot-vim() { # configure vim and plugins
     dir="$HOME/.vim/bundle/vundle"
     clone-or-pull https://github.com/gmarik/vundle.git $dir
     vim +BundleInstall +qall
-    [[ $? -eq 0 ]] && green-echo "[OK] Vim configured"
+    [[ $? -eq 0 ]] && green-echo "[OK] Vim configured, now set it as the default edit"
+    sudo update-alternatives --config editor
 }
 
 function dot-shell() { # configure zsh/oh-my-zsh
