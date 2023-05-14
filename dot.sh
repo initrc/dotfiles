@@ -44,7 +44,9 @@ function dot-linux-dep() { # configure linux - dependency
 
 function dot-linux() { # configure linux
     # keyboard
-    link linux Xmodmap && xmodmap ~/.Xmodmap
+    link linux xkeysnail-config.py
+    link linux xsessionrc
+    green-echo "[OK] See linux/xkeysnail-unsudo.sh to run without sudo"
     # bluetooth suspend fix
     sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
     sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
