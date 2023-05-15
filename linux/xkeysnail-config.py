@@ -20,11 +20,15 @@ define_keymap(None, {
     K("RM-k"): Key.UP,
     K("RM-l"): Key.RIGHT,
 
-    # caps
+    # home/end
     K("RC-a"): Key.HOME,
     K("RC-Shift-a"): K("Shift-Home"),
     K("RC-e"): Key.END,
     K("RC-Shift-e"): K("Shift-End"),
+    K("LC-Left"): Key.HOME,
+    K("LC-Shift-Left"): K("Shift-Home"),
+    K("LC-Right"): Key.END,
+    K("LC-Shift-Right"): K("Shift-End"),
 
     # switch tabs
     K("LC-Shift-Left_Brace"): K("C-Page_up"),
