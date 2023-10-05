@@ -47,6 +47,7 @@ function android-push() {
 alias s='cd ..'
 alias l='ls -al'
 alias f='find . -name'
+alias gm='git lg --author="$(git config user.name)"'
 if [ "$(uname)" = "Darwin" ]; then
     alias tmux='tmux -2 -f ~/.tmux-osx.conf'
 else
