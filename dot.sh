@@ -9,17 +9,19 @@ function dot-linux-dep() { # install linux dependencies
     echo-success "[OK] Installed basic dependencies"
 }
 
-function dot-vim() { # Install AstroNvim
+function dot-vim() { # Install NeoVim
     echo-neutral "[TODO] Install nerd fonts from https://www.nerdfonts.com/font-downloads"
     echo-neutral "       E.g., https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
     echo-neutral "[TODO] Install NeoVim from snap or apt that meets the minimum version requirement from AstroNvim"
     echo-neutral "[TODO] Install AstroNvim from https://docs.astronvim.com"
-    # TODO: sudo update-alternatives --config editor
 }
 
-function dot-vim-config() { # Install AstroNvim user config
+function dot-vim-config() { # Configure NeoVim
     clone-or-pull git@github.com:initrc/astronvim-user-config.git $HOME/.config/nvim/lua/user
     echo-success "[OK] Installed AstroNvim user config"
+    safe-append $HOME/.zshrc 'export EDITOR="nvim"'
+    safe-append $HOME/.zshrc 'export VISUAL="nvim"'
+    echo-success "[OK] Set NeoVim as the default editor"
 }
 
 function dot-shell() { # configure zsh
