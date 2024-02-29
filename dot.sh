@@ -2,11 +2,17 @@
 
 source helper.sh
 
-function dot-linux-dep() { # install linux dependencies
-    sudo apt install ripgrep nodejs
-    echo-result "Install NeoVim dependencies"
-    sudo apt install build-essential aria2 htop neofetch zsh
-    echo-result "Install basic dependencies"
+function dot-dep() { # install dependencies
+    if [ "$(uname)" = "Darwin" ]; then
+        xcode-select --install
+        echo-result "Install Xcode command line tools"
+        echo-todo "Install Homebrew from https://brew.sh"
+    else
+        sudo apt install ripgrep nodejs
+        echo-result "Install NeoVim dependencies"
+        sudo apt install build-essential aria2 htop neofetch zsh
+        echo-result "Install basic dependencies"
+    fi
 }
 
 function dot-vim() { # install NeoVim
@@ -73,15 +79,6 @@ function dot-linux-advanced() { # configure linux
     sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
     sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
     echo-result "Bluetooth will be stopped upon system suspending"
-}
-
-#
-# TODO
-#
-function dot-mac-dep() { # install macOS dependencies
-    xcode-select --install
-    echo-result "Install Xcode command line tools"
-    echo-todo "Install Homebrew from https://brew.sh"
 }
 
 function dot-mac() { # configure macOS
