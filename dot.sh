@@ -89,20 +89,21 @@ function dot-mac() { # configure macOS
     echo-result "Configure macOS"
 }
 
-function dot-python-linux() { # configure python on linux
-    # https://github.com/pyenv/pyenv#automatic-installer
-    curl https://pyenv.run | bash
-    # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-    sudo apt update
-    sudo apt install build-essential libssl-dev zlib1g-dev \
-    libbz2-dev libreadline-dev libsqlite3-dev curl \
-    libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-}
+function dot-pyenv() { # install pyenv
+    if [ "$(uname)" = "Darwin" ]; then
+        brew update && brew install pyenv
+        # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+        brew install openssl readline sqlite3 xz zlib tcl-tk
+    else
+        # https://github.com/pyenv/pyenv#automatic-installer
+        curl https://pyenv.run | bash
+        # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
+        sudo apt update
+        sudo apt install build-essential libssl-dev zlib1g-dev \
+            libbz2-dev libreadline-dev libsqlite3-dev curl \
+            libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+    fi
 
-function dot-python-mac() { # configure python on macOS
-    brew update && brew install pyenv
-    # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-    brew install openssl readline sqlite3 xz zlib tcl-tk
 }
 
 # show usage if not run via 'source'
