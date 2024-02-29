@@ -15,6 +15,15 @@ function echo-error() {
     echo -e "\033[31m$1\033[0m"
 }
 
+function echo-result() {
+    # $1 echo text
+    [[ $? -eq 0 ]] && echo-success "[✅] $1" || echo-error "[❌] $1"
+}
+
+function echo-todo() {
+    # $1 echo text
+    echo-neutral "[TODO] $1"
+}
 
 function link() {
     # $1 category, $2 file to link
@@ -22,14 +31,14 @@ function link() {
     tgt="$HOME/.$2"
     [[ -h "$tgt" ]] && rm $tgt
     ln -s $src $tgt
-    [[ $? -eq 0 ]] && echo-success "[OK] Linked $2" || echo-error "[X] Failed to link $2"
+    echo-result "Link $tgt"
 }
 
 function clone-or-pull() {
     # $1 git repo url, $2 clone destination
     if [[ -d "$2" ]]; then
         pushd $2 > /dev/null
-        echo-neutral "git pull at $2"
+        echo-neutral "git pull from $2"
         git pull
         popd > /dev/null
     else

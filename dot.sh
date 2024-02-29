@@ -3,31 +3,32 @@
 source helper.sh
 
 function dot-linux-dep() { # install linux dependencies
-    sudo apt install ripgrep
-    echo-success "[OK] Installed NeoVim dependencies"
-    sudo apt install build-essential aria2 htop neofetch
-    echo-success "[OK] Installed basic dependencies"
+    sudo apt install ripgrep nodejs
+    echo-result "Install NeoVim dependencies"
+    sudo apt install build-essential aria2 htop neofetch zsh
+    echo-result "Install basic dependencies"
 }
 
-function dot-vim() { # Install NeoVim
-    echo-neutral "[TODO] Install nerd fonts from https://www.nerdfonts.com/font-downloads"
-    echo-neutral "       E.g., https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
-    echo-neutral "[TODO] Install NeoVim from snap or apt that meets the minimum version requirement from AstroNvim"
-    echo-neutral "[TODO] Install AstroNvim from https://docs.astronvim.com"
+function dot-vim() { # install NeoVim
+    echo-todo "Install nerd fonts from https://www.nerdfonts.com/font-downloads"
+    echo-todo "E.g., https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
+    echo-todo "Install NeoVim from snap or apt that meets the minimum version requirement from AstroNvim"
+    echo-todo "Install AstroNvim from https://docs.astronvim.com"
 }
 
-function dot-vim-config() { # Configure NeoVim
+function dot-vim-config() { # configure NeoVim
     clone-or-pull git@github.com:initrc/astronvim-user-config.git $HOME/.config/nvim/lua/user
-    echo-success "[OK] Installed AstroNvim user config"
-    safe-append $HOME/.zshrc 'export EDITOR="nvim"'
-    safe-append $HOME/.zshrc 'export VISUAL="nvim"'
-    echo-success "[OK] Set NeoVim as the default editor"
+    echo-result "Install AstroNvim user config"
+    safe-append $HOME/.zshrc "export EDITOR=\"nvim\""
+    safe-append $HOME/.zshrc "export VISUAL=\"nvim\""
+    echo-result "Set NeoVim as the default editor"
 }
 
-function dot-shell() { # configure zsh
-    echo-neutral "[..] Installing zsh"
-    sudo apt install zsh
-    echo-success "[OK] Installed zsh"
+function dot-shell() { # install oh-my-zsh
+    echo-todo "Install oh-my-zsh from https://ohmyz.sh/#install"
+}
+
+function dot-shell-config() { # configure zsh
     link . alias
     if [ "$(uname)" = "Darwin" ]; then
         # use linux lscolors on macOS
@@ -35,9 +36,9 @@ function dot-shell() { # configure zsh
     fi
     safe-append $HOME/.zshrc "source \$HOME/.alias"
     safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
-    [[ $? -eq 0 ]] && echo-success "[OK] Zsh configured"
-    echo-neutral "[TODO] [~/.zshrc] Move the theme config to the top"
-    echo-neutral "[TODO] [~/.oh-my-zsh/themes/agnoster.zsh-theme] Comment out RETVAL from build_prompt()"
+    echo-result "Configure zsh"
+    echo-todo "[~/.zshrc] Move the theme config to the top"
+    echo-todo "[~/.oh-my-zsh/themes/agnoster.zsh-theme] Comment out RETVAL from build_prompt()"
 }
 
 function dot-git-config() { # configure git
@@ -48,19 +49,18 @@ function dot-git-config() { # configure git
     git config --global alias.feature "checkout --track origin/master -b"
     git config --global alias.pushf "push --force-with-lease"
     git config --global core.excludesfile ~/.gitignore
-    [[ $? -eq 0 ]] && echo-success "[OK] Configured git"
-    echo-neutral "[TODO] git config --global user.name \"...\""
-    echo-neutral "[TODO] git config --global user.email ...@..."
+    echo-result "Configure git"
+    echo-todo "git config --global user.name \"...\""
+    echo-todo "git config --global user.email ...@..."
 }
 
 function dot-git-scm-breeze() { # install scm-breeze
-    echo-neutral "[..] Installing SCM Breeze dependencies"
     sudo apt install ruby
-    echo-success "[OK] Installed SCM Breeze dependencies"
+    echo-result "Install SCM Breeze dependencies"
     dir="$HOME/.scm_breeze"
     clone-or-pull https://github.com/scmbreeze/scm_breeze.git $dir
     $dir/install.sh
-    [[ $? -eq 0 ]] && echo-success "[OK] Installed SCM Breeze"
+    echo-result "Install SCM Breeze"
 }
 
 function dot-linux-advanced() { # configure linux
@@ -68,11 +68,11 @@ function dot-linux-advanced() { # configure linux
     # keyboard
     link linux xkeysnail-config.py
     link linux xsessionrc
-    echo-success "[OK] See linux/xkeysnail-unsudo.sh to run without sudo"
+    echo-result "See linux/xkeysnail-unsudo.sh to run without sudo"
     # bluetooth suspend fix
     sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
     sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
-    [[ $? -eq 0 ]] && echo-success "[OK] Bluetooth will be stopped upon system suspending"
+    echo-result "Bluetooth will be stopped upon system suspending"
 }
 
 #
@@ -80,16 +80,16 @@ function dot-linux-advanced() { # configure linux
 #
 function dot-mac-dep() { # install macOS dependencies
     xcode-select --install
-    echo-success "[OK] Xcode command line tools installed"
-    echo-neutral "[TODO] Install Homebrew from https://brew.sh"
+    echo-result "Install Xcode command line tools"
+    echo-todo "Install Homebrew from https://brew.sh"
 }
 
 function dot-mac() { # configure macOS
-    defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
-    defaults write -g KeyRepeat -int 2 # normal minimum is 2 (30 ms)
+    defaults write -g InitialKeyRepeat -int 15 # default minimum is 15 (225 ms)
+    defaults write -g KeyRepeat -int 2 # default minimum is 2 (30 ms)
     defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
     defaults write -g ApplePressAndHoldEnabled 0 # intelliJ cursor move around
-    [[ $? -eq 0 ]] && echo-success "[OK] Mac configured"
+    echo-result "Configure macOS"
 }
 
 function dot-python-linux() { # configure python on linux
@@ -112,7 +112,7 @@ function dot-python-mac() { # configure python on macOS
 if [[ $0 == ${BASH_SOURCE} ]]; then
     echo-neutral "Usage: source $0\n"
 else
-    echo-success "[OK] Functions loaded"
+    echo-success "[✅] Functions loaded"
 fi
 cat $0 | grep "^function dot" \
     | sed "s/^function \(dot-[a-zA-Z0-9-]*\)()[ ]*{[ ]*#[ ]*\(.*$\)/\1:\2/g" \
