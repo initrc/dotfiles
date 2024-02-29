@@ -27,11 +27,14 @@ function dot-shell() { # configure zsh
     sudo apt install zsh
     echo-success "[OK] Installed zsh"
     link . alias
+    if [ "$(uname)" = "Darwin" ]; then
+        # use linux lscolors on macOS
+        safe-append $HOME/.zshrc "export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd"
+    fi
     safe-append $HOME/.zshrc "source \$HOME/.alias"
     safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
     [[ $? -eq 0 ]] && echo-success "[OK] Zsh configured"
     echo-neutral "[TODO] [~/.zshrc] Move the theme config to the top"
-    echo-neutral "[TODO] [~/.oh-my-zsh/themes/agnoster.zsh-theme] %s/blue/magenta/g"
     echo-neutral "[TODO] [~/.oh-my-zsh/themes/agnoster.zsh-theme] Comment out RETVAL from build_prompt()"
 }
 
