@@ -69,16 +69,30 @@ function dot-git-scm-breeze() { # install scm-breeze
     echo-result "Install SCM Breeze"
 }
 
-function dot-linux-advanced() { # configure linux
-    # TODO
-    # keyboard
+function dot-linux-keymap() { # configure linux keymap
+    sudo apt install python3-pip
+    sudo pip3 install xkeysnail --break-system-packages
+    echo-result "Install xkeysnail"
     link linux xkeysnail-config.py
     link linux xsessionrc
-    echo-result "See linux/xkeysnail-unsudo.sh to run without sudo"
+
+    # https://github.com/joshgoebel/keyszer
+    xset r rate 250 25
+    echo-result "Set the virtual keyboard delay (250 ms) and repeat rate (20/s) to match the real keyboard"
+
+    # run xkeysnail without sudo
+    # https://github.com/mooz/xkeysnail/issues/64#issuecomment-600380800
+    sudo groupadd -f uinput
+    sudo gpasswd -a $USER uinput
+    sudo cp linux/70-xkeysnail.rules /etc/udev/rules.d/
+    echo-result "Reboot to run xkeysnail without sudo"
+}
+
+function dot-linux-bluetooth-fix() { # configure linux bluetooth fix
     # bluetooth suspend fix
     sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
     sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
-    echo-result "Bluetooth will be stopped upon system suspending"
+    echo-result "Fix the bluetooth keyboard issue that wakes up the system immediately after the system suspended"
 }
 
 function dot-mac() { # configure macOS
@@ -103,7 +117,6 @@ function dot-pyenv() { # install pyenv
             libbz2-dev libreadline-dev libsqlite3-dev curl \
             libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
     fi
-
 }
 
 # show usage if not run via 'source'
