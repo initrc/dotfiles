@@ -1,0 +1,11 @@
+# shell
+alias s='cd ..'
+alias f='find . -name'
+alias vi="nvim"
+alias copy="xclip -selection clipboard"
+
+# git
+alias gm='git lg --author="$(git config user.name)"'
+
+# android
+alias ss='adb exec-out screencap -p > ~/Desktop/screenshot-"$( date +%Y.%m.%d-%H.%M.%S )".png'
