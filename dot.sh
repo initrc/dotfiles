@@ -2,39 +2,48 @@
 
 source helper.sh
 
-function dot-dep() { # install dependencies
+function dot-sys-dep() { # install system dependencies
     if [ "$(uname)" = "Darwin" ]; then
         xcode-select --install
         echo-result "Install Xcode command line tools"
         echo-todo "Install Homebrew from https://brew.sh"
     else
         sudo apt install ripgrep nodejs
-        echo-result "Install NeoVim dependencies"
+        echo-result "Install nvim dependencies"
         sudo apt install build-essential aria2 htop neofetch zsh
         echo-result "Install basic dependencies"
     fi
 }
 
-function dot-vim() { # install NeoVim
+function dot-sys-config() { # configure system (keyboard, mouse, fixes)
+    if [ "$(uname)" = "Darwin" ]; then
+        dot-mac-config
+    else
+        dot-linux-bluetooth-fix
+        dot-linux-keymap
+    fi
+}
+
+function dot-nvim-install() { # install nvim
     echo-todo "Install nerd fonts from https://www.nerdfonts.com/font-downloads"
     echo-todo "E.g., https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
     echo-todo "Install NeoVim from snap or apt that meets the minimum version requirement from AstroNvim"
     echo-todo "Install AstroNvim from https://docs.astronvim.com"
 }
 
-function dot-vim-config() { # configure NeoVim
+function dot-nvim-config() { # configure nvim
     clone-or-pull git@github.com:initrc/astronvim-user-config.git $HOME/.config/nvim/lua/user
     echo-result "Install AstroNvim user config"
     safe-append $HOME/.zshrc "export EDITOR=\"nvim\""
     safe-append $HOME/.zshrc "export VISUAL=\"nvim\""
-    echo-result "Set NeoVim as the default editor"
+    echo-result "Set nvim as the default editor"
 }
 
-function dot-shell() { # install oh-my-zsh
+function dot-zsh-install() { # install oh-my-zsh
     echo-todo "Install oh-my-zsh from https://ohmyz.sh/#install"
 }
 
-function dot-shell-config() { # configure zsh
+function dot-zsh-config() { # configure zsh
     link . alias
     if [ "$(uname)" = "Darwin" ]; then
         # use linux lscolors on macOS
@@ -60,7 +69,7 @@ function dot-git-config() { # configure git
     echo-todo "git config --global user.email ...@..."
 }
 
-function dot-git-scm-breeze() { # install scm-breeze
+function dot-git-scm-breeze() { # install git scm-breeze
     sudo apt install ruby
     echo-result "Install SCM Breeze dependencies"
     dir="$HOME/.scm_breeze"
@@ -69,7 +78,13 @@ function dot-git-scm-breeze() { # install scm-breeze
     echo-result "Install SCM Breeze"
 }
 
-function dot-linux-keymap() { # configure linux keymap
+function linux-bluetooth-fix() { # linux bluetooth suspend fix
+    sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
+    sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
+    echo-result "Fix the bluetooth keyboard issue that wakes up the system immediately after the system suspended"
+}
+
+function linux-keymap() { # linux custom keymap with xkeysnail
     sudo apt install python3-pip
     sudo pip3 install xkeysnail --break-system-packages
     echo-result "Install xkeysnail"
@@ -88,14 +103,7 @@ function dot-linux-keymap() { # configure linux keymap
     echo-result "Reboot to run xkeysnail without sudo"
 }
 
-function dot-linux-bluetooth-fix() { # configure linux bluetooth fix
-    # bluetooth suspend fix
-    sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
-    sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
-    echo-result "Fix the bluetooth keyboard issue that wakes up the system immediately after the system suspended"
-}
-
-function dot-mac() { # configure macOS
+function mac-config() { # macOS keyboard and mouse config
     defaults write -g InitialKeyRepeat -int 15 # default minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # default minimum is 2 (30 ms)
     defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
@@ -103,7 +111,7 @@ function dot-mac() { # configure macOS
     echo-result "Configure macOS"
 }
 
-function dot-pyenv() { # install pyenv
+function pyenv-install() { # install pyenv
     if [ "$(uname)" = "Darwin" ]; then
         brew update && brew install pyenv
         # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
