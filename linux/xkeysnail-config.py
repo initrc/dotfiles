@@ -36,16 +36,12 @@ define_keymap(None, {
 }, "Global")
 
 define_keymap(re.compile("Chromium-browser|Google-chrome|Firefox"), {
-    # open in new tab
-    K("LC-Enter"): K("M-Enter"),
-    K("LM-Enter"): K("C-Enter"),
+    # open in new tab, although it breaks ctrl+enter to send in gmail
+    # K("LC-Enter"): K("M-Enter"),
+    # K("LM-Enter"): K("C-Enter"),
 
     # alt-tab to switch browser tabs because ctrl-tab is used to toggle through windows in settings
     K("LM-Shift-Tab"): K("C-Page_up"),
     K("LM-Tab"): K("C-Page_down"),
 }, "Browser")
-
-define_keymap(re.compile("konsole"), {
-    K("LC-c"): K("C-Shift-c"),
-}, "Terminal")
 
