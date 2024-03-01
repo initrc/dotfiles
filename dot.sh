@@ -78,6 +78,12 @@ function dot-git-scm-breeze() { # install git scm-breeze
     echo-result "Install SCM Breeze"
 }
 
+function dot-apt-remove() { # remove linux bloatware
+    sudo apt remove --purge "libreoffice*" thunderbird imagemagick
+    sudo apt clean
+    sudo apt autoremove
+}
+
 function linux-bluetooth-fix() { # linux bluetooth suspend fix
     sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
     sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
