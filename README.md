@@ -1,27 +1,25 @@
 dotfiles
 ========
-## Pre-installation
+## Install
 
 - Create and add an [SSH key](https://github.com/settings/keys) to GitHub and clone this repo.
-- Run the script to show all the commands. Source the script to execute.
+- Source the script will print out all the commands.
 
 ```
 git clone git@github.com:initrc/dotfiles.git
-./dot.sh
+source dot.sh
 ```
 
-## Linux
+## Commands
 ```
-dot-linux-dep
-dot-vim
-dot-vim-config
-dot-shell
-dot-git-config
-dot-git-scm-breeze
-```
-
-## Mac
-```
-dot-mac-dep
+dot-sys-dep         : install system dependencies
+dot-sys-config      : configure system (keyboard, mouse, fixes)
+dot-nvim-install    : install nvim
+dot-nvim-config     : configure nvim
+dot-zsh-install     : install oh-my-zsh
+dot-zsh-config      : configure zsh
+dot-git-config      : configure git
+dot-git-scm-breeze  : install git scm-breeze
+dot-apt-remove      : remove linux bloatware 
 ```
 
