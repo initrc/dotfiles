@@ -49,6 +49,7 @@ function dot-zsh-config() { # configure zsh
         # use linux lscolors on macOS
         safe-append $HOME/.zshrc "export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd"
     fi
+    safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
     safe-append $HOME/.zshrc "source \$HOME/.alias"
     safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
     echo-result "Configure zsh"
