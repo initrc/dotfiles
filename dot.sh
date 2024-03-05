@@ -17,10 +17,10 @@ function dot-sys-dep() { # install system dependencies
 
 function dot-sys-config() { # configure system (keyboard, mouse, fixes)
     if [ "$(uname)" = "Darwin" ]; then
-        dot-mac-config
+        mac-config
     else
-        dot-linux-bluetooth-fix
-        dot-linux-keymap
+        linux-bluetooth-fix
+        linux-keymap
     fi
 }
 
@@ -70,8 +70,10 @@ function dot-git-config() { # configure git
 }
 
 function dot-git-scm-breeze() { # install git scm-breeze
-    sudo apt install ruby
-    echo-result "Install SCM Breeze dependencies"
+    if [ "$(uname)" == "Linux" ]; then
+        sudo apt install ruby
+        echo-result "Install SCM Breeze dependencies"
+    fi
     dir="$HOME/.scm_breeze"
     clone-or-pull https://github.com/scmbreeze/scm_breeze.git $dir
     $dir/install.sh
