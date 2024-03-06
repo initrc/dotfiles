@@ -10,7 +10,7 @@ function dot-sys-dep() { # install system dependencies
     else
         sudo apt install ripgrep nodejs
         echo-result "Install nvim dependencies"
-        sudo apt install build-essential aria2 htop neofetch zsh
+        sudo apt install build-essential aria2 htop neofetch ruby xclip zsh
         echo-result "Install basic dependencies"
     fi
 }
@@ -71,10 +71,6 @@ function dot-git-config() { # configure git
 }
 
 function dot-git-scm-breeze() { # install git scm-breeze
-    if [ "$(uname)" == "Linux" ]; then
-        sudo apt install ruby
-        echo-result "Install SCM Breeze dependencies"
-    fi
     dir="$HOME/.scm_breeze"
     clone-or-pull https://github.com/scmbreeze/scm_breeze.git $dir
     $dir/install.sh

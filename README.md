@@ -6,6 +6,14 @@ dotfiles
 - Source the script will print out all the commands.
 
 ```
+sudo apt install gawk, xclip, zsh
+alias copy="xclip -selection clipboard"
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+copy ~/.ssh/id_ed25519.pub
+
 git clone git@github.com:initrc/dotfiles.git
 source dot.sh
 ```
