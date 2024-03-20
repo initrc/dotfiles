@@ -33,6 +33,8 @@ define_keymap(None, {
     # switch tabs
     K("LC-Shift-Left_Brace"): K("C-Page_up"),
     K("LC-Shift-Right_Brace"): K("C-Page_down"),
+    K("RM-Shift-Left_Brace"): K("C-Page_up"),
+    K("RM-Shift-Right_Brace"): K("C-Page_down"),
 }, "Global")
 
 define_keymap(re.compile("Chromium-browser|Google-chrome|Firefox"), {
