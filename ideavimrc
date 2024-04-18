@@ -1,0 +1,11 @@
+"H and L to start and end of line
+noremap H ^
+noremap L $
+"K and J to page up and down
+noremap K <C-b>M
+noremap J <C-f>M
+"+ to join lines (J is remapped)
+noremap + J
+"U to redo
+nnoremap U <C-r>
+
