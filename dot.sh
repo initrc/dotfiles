@@ -24,23 +24,6 @@ function dot-sys-config() { # configure system (keyboard, mouse, fixes)
     fi
 }
 
-function dot-nvim-install() { # install nvim
-    echo-todo "Install nerd fonts from https://www.nerdfonts.com/font-downloads"
-    echo-todo "E.g., https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
-    echo-todo "Install NeoVim from snap or apt that meets the minimum version requirement from AstroNvim"
-    echo-todo "Install AstroNvim from https://docs.astronvim.com"
-}
-
-function dot-nvim-config() { # configure nvim
-    clone-or-pull git@github.com:initrc/astronvim-user-config.git $HOME/.config/nvim/lua/user
-    echo-result "Install AstroNvim user config"
-    safe-append $HOME/.zshrc "export EDITOR=\"nvim\""
-    safe-append $HOME/.zshrc "export VISUAL=\"nvim\""
-    echo-result "Set nvim as the default editor"
-    link .ideavimrc
-    echo-result "Configure ideavimrc"
-}
-
 function dot-zsh-install() { # install oh-my-zsh
     echo-todo "Install oh-my-zsh from https://ohmyz.sh/#install"
 }
@@ -57,6 +40,23 @@ function dot-zsh-config() { # configure zsh
     echo-result "Configure zsh"
     echo-todo "[~/.zshrc] Move the theme config to the top"
     echo-todo "[~/.oh-my-zsh/themes/agnoster.zsh-theme] Comment out RETVAL from build_prompt()"
+}
+
+function dot-nvim-install() { # install nvim
+    echo-todo "Install nerd fonts from https://www.nerdfonts.com/font-downloads"
+    echo-todo "E.g., https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
+    echo-todo "Install NeoVim from snap or apt that meets the minimum version requirement from AstroNvim"
+    echo-todo "Install AstroNvim from https://docs.astronvim.com"
+}
+
+function dot-nvim-config() { # configure nvim
+    clone-or-pull git@github.com:initrc/astronvim-template.git $HOME/.config/nvim
+    echo-result "Install AstroNvim user config"
+    safe-append $HOME/.zshrc "export EDITOR=\"nvim\""
+    safe-append $HOME/.zshrc "export VISUAL=\"nvim\""
+    echo-result "Set nvim as the default editor"
+    link .ideavimrc
+    echo-result "Configure ideavimrc"
 }
 
 function dot-git-config() { # configure git
