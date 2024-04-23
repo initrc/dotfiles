@@ -43,10 +43,9 @@ function dot-zsh-config() { # configure zsh
 }
 
 function dot-nvim-install() { # install nvim
+    sudo apt install neovim
     echo-todo "Install nerd fonts from https://www.nerdfonts.com/font-downloads"
     echo-todo "E.g., https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip"
-    echo-todo "Install NeoVim from snap or apt that meets the minimum version requirement from AstroNvim"
-    echo-todo "Install AstroNvim from https://docs.astronvim.com"
 }
 
 function dot-nvim-config() { # configure nvim
