@@ -28,6 +28,5 @@ dot-nvim-install    : install nvim
 dot-nvim-config     : configure nvim
 dot-git-config      : configure git
 dot-git-scm-breeze  : install git scm-breeze
-dot-apt-remove      : remove linux bloatware 
 ```
 
