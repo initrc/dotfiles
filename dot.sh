@@ -19,7 +19,6 @@ function dot-sys-config() { # configure system (keyboard, mouse, fixes)
     if [ "$(uname)" = "Darwin" ]; then
         mac-config
     else
-        linux-bluetooth-fix
         linux-keymap
     fi
 }
@@ -78,7 +77,7 @@ function dot-git-scm-breeze() { # install git scm-breeze
     echo-result "Install SCM Breeze"
 }
 
-function linux-bluetooth-fix() { # linux bluetooth suspend fix
+function linux-bluetooth-fix() { # linux bluetooth suspend fix, not needed in 24.04
     sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
     sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
     echo-result "Fix the bluetooth keyboard issue that wakes up the system immediately after the system suspended"
