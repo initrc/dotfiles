@@ -22,10 +22,10 @@ source dot.sh
 ```
 dot-sys-dep         : install system dependencies
 dot-sys-config      : configure system (keyboard, mouse, fixes)
-dot-nvim-install    : install nvim
-dot-nvim-config     : configure nvim
 dot-zsh-install     : install oh-my-zsh
 dot-zsh-config      : configure zsh
+dot-nvim-install    : install nvim
+dot-nvim-config     : configure nvim
 dot-git-config      : configure git
 dot-git-scm-breeze  : install git scm-breeze
 dot-apt-remove      : remove linux bloatware 
