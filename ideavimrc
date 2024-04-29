@@ -9,3 +9,6 @@ noremap + J
 "U to redo
 nnoremap U <C-r>
 
+"clipboard
+set clipboard+=unnamed
+
