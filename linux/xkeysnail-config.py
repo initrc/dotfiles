@@ -6,7 +6,10 @@ define_timeout(1)
 
 define_modmap({
     Key.LEFT_ALT: Key.LEFT_CTRL,
-    Key.LEFT_CTRL: Key.LEFT_ALT,
+    Key.LEFT_CTRL: Key.LEFT_META,
+    Key.LEFT_META: Key.LEFT_ALT,
+    Key.RIGHT_ALT: Key.RIGHT_CTRL,
+    Key.RIGHT_CTRL: Key.RIGHT_ALT,
 })
 
 define_multipurpose_modmap({
@@ -15,10 +18,10 @@ define_multipurpose_modmap({
 
 define_keymap(None, {
     # arrow keys
-    K("RM-h"): Key.LEFT,
-    K("RM-j"): Key.DOWN,
-    K("RM-k"): Key.UP,
-    K("RM-l"): Key.RIGHT,
+    K("RC-h"): Key.LEFT,
+    K("RC-j"): Key.DOWN,
+    K("RC-k"): Key.UP,
+    K("RC-l"): Key.RIGHT,
 
     # home/end
     K("RC-a"): Key.HOME,
@@ -31,19 +34,14 @@ define_keymap(None, {
     K("LC-Shift-Right"): K("Shift-End"),
 
     # switch tabs
-    K("LC-Shift-Left_Brace"): K("C-Page_up"),
-    K("LC-Shift-Right_Brace"): K("C-Page_down"),
-    K("RM-Shift-Left_Brace"): K("C-Page_up"),
-    K("RM-Shift-Right_Brace"): K("C-Page_down"),
+    K("C-Shift-Left_Brace"): K("C-Page_up"),
+    K("C-Shift-Right_Brace"): K("C-Page_down"),
 }, "Global")
 
+# Run `xprop | grep WM_CLASS` and click on the window to check the app name
+# The first string is the application's resource name, and the second is the application's class name.
+# xkeysnail uses the class name for app-specific mappings.
 define_keymap(re.compile("Chromium-browser|Google-chrome|Firefox"), {
-    # open in new tab, although it breaks ctrl+enter to send in gmail
-    # K("LC-Enter"): K("M-Enter"),
-    # K("LM-Enter"): K("C-Enter"),
-
-    # alt-tab to switch browser tabs because ctrl-tab is used to toggle through windows in settings
-    K("LM-Shift-Tab"): K("C-Page_up"),
-    K("LM-Tab"): K("C-Page_down"),
+    K("LC-y"): K("LC-h")
 }, "Browser")
 
