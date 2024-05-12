@@ -12,3 +12,6 @@ nnoremap U <C-r>
 "clipboard
 set clipboard+=unnamed
 
+"search
+set ignorecase
+
