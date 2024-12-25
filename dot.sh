@@ -39,6 +39,8 @@ function dot-zsh-config() { # configure zsh
     echo-result "Configure zsh"
     echo-todo "[~/.zshrc] Move the theme config to the top"
     echo-todo "[~/.oh-my-zsh/themes/agnoster.zsh-theme] Comment out RETVAL from build_prompt()"
+    echo-todo "[~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove branch from build_prompt()"
+    echo-todo "[~/.oh-my-zsh/themes/agnoster.zsh-theme] Update hg rev=$(command hg id 2>/dev/null | cut -c1-10)"
 }
 
 function dot-nvim-install() { # install nvim
