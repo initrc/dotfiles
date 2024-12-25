@@ -42,7 +42,11 @@ function dot-zsh-config() { # configure zsh
 }
 
 function dot-nvim-install() { # install nvim
-    sudo apt install neovim
+    if [ "$(uname)" = "Darwin" ]; then
+        brew install neovim
+    else
+        sudo apt install neovim
+    fi
     echo-todo "Install nerd fonts from https://www.nerdfonts.com/font-downloads"
     echo-todo "E.g., https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip"
 }
