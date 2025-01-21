@@ -6,7 +6,7 @@ dotfiles
 - Source the script will print out all the commands.
 
 ```
-sudo apt install gawk, xclip, zsh
+sudo apt install gawk xclip zsh
 alias copy="xclip -selection clipboard"
 
 ssh-keygen -t ed25519 -C "your_email@example.com"
