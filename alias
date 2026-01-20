@@ -6,6 +6,7 @@ alias copy="xclip -selection clipboard"
 
 # git
 alias gm='git lg --author="$(git config user.name)"'
+alias git-alias='vi ~/.oh-my-zsh/plugins/git/README.md'
 
 # python
 alias python='python3'

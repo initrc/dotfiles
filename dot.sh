@@ -66,21 +66,10 @@ function dot-nvim-config() { # configure nvim
 function dot-git-config() { # configure git
     link . gitignore
     git config --global color.diff always
-    git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-    git config --global alias.purr "pull --rebase"
-    git config --global alias.feature "checkout --track origin/master -b"
-    git config --global alias.pushf "push --force-with-lease"
     git config --global core.excludesfile ~/.gitignore
     echo-result "Configure git"
     echo-todo "git config --global user.name \"...\""
     echo-todo "git config --global user.email ...@..."
-}
-
-function dot-git-scm-breeze() { # install git scm-breeze
-    dir="$HOME/.scm_breeze"
-    clone-or-pull https://github.com/scmbreeze/scm_breeze.git $dir
-    $dir/install.sh
-    echo-result "Install SCM Breeze"
 }
 
 function linux-bluetooth-fix() { # linux bluetooth suspend fix, not needed in 24.04
