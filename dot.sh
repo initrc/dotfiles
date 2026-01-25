@@ -10,7 +10,7 @@ function dot-sys-dep() { # install system dependencies
     else
         sudo apt install ripgrep nodejs
         echo-result "Install nvim dependencies"
-        sudo apt install build-essential aria2 htop neofetch ruby xclip zsh
+        sudo apt install build-essential aria2 htop fastfetch ruby xclip zsh
         echo-result "Install basic dependencies"
     fi
 }
