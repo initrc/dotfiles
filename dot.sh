@@ -72,12 +72,6 @@ function dot-git-config() { # configure git
     echo-todo "git config --global user.email ...@..."
 }
 
-function linux-bluetooth-fix() { # linux bluetooth suspend fix, not needed in 24.04
-    sudo cp linux/bluetooth-suspend.sh /lib/systemd/system-sleep/
-    sudo chmod +x /lib/systemd/system-sleep/bluetooth-suspend.sh
-    echo-result "Fix the bluetooth keyboard issue that wakes up the system immediately after the system suspended"
-}
-
 # deprecated, use https://github.com/RedBearAK/Toshy instead
 function linux-keymap() { # linux custom keymap with xkeysnail
     sudo apt install python3-pip
