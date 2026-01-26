@@ -59,7 +59,7 @@ function dot-nvim-config() { # configure nvim
     safe-append $HOME/.zshrc "export EDITOR=\"nvim\""
     safe-append $HOME/.zshrc "export VISUAL=\"nvim\""
     echo-result "Set nvim as the default editor"
-    link .ideavimrc
+    link . ideavimrc
     echo-result "Configure ideavimrc"
 }
 
