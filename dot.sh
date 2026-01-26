@@ -78,6 +78,7 @@ function linux-bluetooth-fix() { # linux bluetooth suspend fix, not needed in 24
     echo-result "Fix the bluetooth keyboard issue that wakes up the system immediately after the system suspended"
 }
 
+# deprecated, use https://github.com/RedBearAK/Toshy instead
 function linux-keymap() { # linux custom keymap with xkeysnail
     sudo apt install python3-pip
     sudo pip3 install xkeysnail --break-system-packages
@@ -103,22 +104,6 @@ function mac-config() { # macOS keyboard and mouse config
     defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
     defaults write -g ApplePressAndHoldEnabled 0 # intelliJ cursor move around
     echo-result "Configure macOS"
-}
-
-function pyenv-install() { # install pyenv
-    if [ "$(uname)" = "Darwin" ]; then
-        brew update && brew install pyenv
-        # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-        brew install openssl readline sqlite3 xz zlib tcl-tk
-    else
-        # https://github.com/pyenv/pyenv#automatic-installer
-        curl https://pyenv.run | bash
-        # https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-        sudo apt update
-        sudo apt install build-essential libssl-dev zlib1g-dev \
-            libbz2-dev libreadline-dev libsqlite3-dev curl \
-            libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-    fi
 }
 
 # show usage if not run via 'source'
