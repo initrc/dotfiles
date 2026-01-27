@@ -15,5 +15,5 @@ alias python='python3'
 alias ss='adb exec-out screencap -p > ~/Desktop/screenshot-"$( date +%Y.%m.%d-%H.%M.%S )".png'
 
 # linux
-alias reboot-win='sudo grub-reboot "Windows Boot Manager (on /dev/nvme0n1p1)" && reboot'
+alias rw='sudo grub-reboot "Windows Boot Manager (on /dev/nvme0n1p1)" && reboot'
 
