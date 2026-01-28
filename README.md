@@ -15,7 +15,7 @@ ssh-add ~/.ssh/id_ed25519
 copy ~/.ssh/id_ed25519.pub
 
 git clone git@github.com:initrc/dotfiles.git
-source dot.sh
+cd dotfiles && source dot.sh
 ```
 
 ## Commands
