@@ -15,11 +15,9 @@ function dot-sys-dep() { # install system dependencies
     fi
 }
 
-function dot-sys-config() { # configure system (keyboard, mouse, fixes)
+function dot-mac-config() { # configure system (keyboard, mouse, fixes)
     if [ "$(uname)" = "Darwin" ]; then
         mac-config
-    else
-        linux-keymap
     fi
 }
 
@@ -70,26 +68,6 @@ function dot-git-config() { # configure git
     echo-result "Configure git"
     echo-todo "git config --global user.name \"...\""
     echo-todo "git config --global user.email ...@..."
-}
-
-# deprecated, use https://github.com/RedBearAK/Toshy instead
-function linux-keymap() { # linux custom keymap with xkeysnail
-    sudo apt install python3-pip
-    sudo pip3 install xkeysnail --break-system-packages
-    echo-result "Install xkeysnail"
-    link linux xkeysnail-config.py
-    link linux xsessionrc
-
-    # https://github.com/joshgoebel/keyszer
-    xset r rate 250 25
-    echo-result "Set the virtual keyboard delay (250 ms) and repeat rate (20/s) to match the real keyboard"
-
-    # run xkeysnail without sudo
-    # https://github.com/mooz/xkeysnail/issues/64#issuecomment-600380800
-    sudo groupadd -f uinput
-    sudo gpasswd -a $USER uinput
-    sudo cp linux/70-xkeysnail.rules /etc/udev/rules.d/
-    echo-result "Reboot to run xkeysnail without sudo"
 }
 
 function mac-config() { # macOS keyboard and mouse config
