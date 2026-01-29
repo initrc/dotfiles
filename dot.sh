@@ -15,12 +15,6 @@ function dot-sys-dep() { # install system dependencies
     fi
 }
 
-function dot-mac-config() { # configure system (keyboard, mouse, fixes)
-    if [ "$(uname)" = "Darwin" ]; then
-        mac-config
-    fi
-}
-
 function dot-zsh-install() { # install oh-my-zsh
     echo-todo "Install oh-my-zsh from https://ohmyz.sh/#install"
 }
@@ -70,7 +64,7 @@ function dot-git-config() { # configure git
     echo-todo "git config --global user.email ...@..."
 }
 
-function mac-config() { # macOS keyboard and mouse config
+function dot-mac-config() { # configure macOS keyboard and mouse
     defaults write -g InitialKeyRepeat -int 15 # default minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # default minimum is 2 (30 ms)
     defaults write .GlobalPreferences com.apple.mouse.scaling -1 # default acceleration 1.5
