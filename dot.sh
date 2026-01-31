@@ -72,6 +72,18 @@ function dot-mac-config() { # configure macOS keyboard and mouse
     echo-result "Configure macOS"
 }
 
+function dot-keyd-win() { # configure keyd (windows keyboard)
+    sudo ln -s $PWD/keyd-win.conf /etc/keyd/default.conf
+    echo-result "Link /etc/keyd/default.conf"
+    echo-todo "Install keyd from https://github.com/rvaiya/keyd"
+}
+
+function dot-keyd-mac() { # configure keyd (mac keyboard)
+    sudo ln -s $PWD/keyd-mac.conf /etc/keyd/default.conf
+    echo-result "Link /etc/keyd/default.conf"
+    echo-todo "Install keyd from https://github.com/rvaiya/keyd"
+}
+
 # show usage if not run via 'source'
 if [[ $0 == ${BASH_SOURCE} ]]; then
     echo-neutral "Usage: source $0\n"
