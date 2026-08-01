@@ -57,9 +57,13 @@ function dot-nvim-config() { # configure nvim
 
 function dot-git-config() { # configure git
     link . gitignore
-    git config --global color.diff always
+    git config --global color.diff auto
     git config --global core.excludesfile ~/.gitignore
+    git config --global diff.algorithm histogram
+    git config --global diff.colorMoved zebra
+    git config --global diff.colorMovedWS allow-indentation-change
     echo-result "Configure git"
+    echo-todo "brew install difftastic"
     echo-todo "git config --global user.name \"...\""
     echo-todo "git config --global user.email ...@..."
 }

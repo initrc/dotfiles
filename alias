@@ -7,6 +7,8 @@ alias copy="xclip -selection clipboard"
 # git
 alias gm='git lg --author="$(git config user.name)"'
 alias git-alias='vi ~/.oh-my-zsh/plugins/git/README.md'
+alias gdd='git -c diff.external=difft diff'
+alias gshd='git -c diff.external=difft show --ext-diff'
 
 # android
 alias ss='adb exec-out screencap -p > ~/Desktop/screenshot-"$( date +%Y.%m.%d-%H.%M.%S )".png'
