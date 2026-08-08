@@ -7,4 +7,4 @@ source "$HOME/.alias2"
 source "$HOME/.local/bin/env"
 
 eval "$(fnm env --use-on-cd --shell zsh)"
-eval "$(starship init zsh)"
+source "$HOME/.zsh-prompt.zsh"

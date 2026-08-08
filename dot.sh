@@ -17,8 +17,8 @@ function dot-sys-dep() { # install system dependencies
 
 function dot-zsh-config() { # configure zsh
     link . zshrc
+    link . zsh-prompt.zsh
     link . alias
-    link-hidden-folder config starship.toml
 }
 
 function dot-nvim-install() { # install nvim
