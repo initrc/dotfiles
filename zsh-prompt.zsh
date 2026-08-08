@@ -6,14 +6,14 @@
 _powerline_prompt_precmd() {
     # local -F prompt_started_at=$EPOCHREALTIME # for perf evaluation
     local git_output git_exit line branch='' oid='' branch_bg='green'
-    local dirty=0
+    local ahead=0 behind=0 dirty=0 conflicted=0
     local separator=''     # U+E0B0, Powerline right hard divider
-    local branch_symbol='' # U+E0A0, Powerline branch symbol
+    local branch_symbol='' dirty_symbol=''
 
     # porcelain v2 provides branch metadata and dirty state in one call
     # disabling optional locks prevents status checks from writing to the index
     git_output=$(GIT_OPTIONAL_LOCKS=0 command git status \
-        --porcelain=v2 --branch --no-renames 2>/dev/null)
+        --porcelain=v2 --branch --ahead-behind --no-renames 2>/dev/null)
     git_exit=$?
 
     if (( git_exit == 0 )); then
@@ -24,7 +24,13 @@ _powerline_prompt_precmd() {
                 # e.g., branch.head main => branch=main after # removes the shortest matching prefix
                 '# branch.head '*) branch=${line#\# branch.head } ;;
                 '# branch.oid '*)  oid=${line#\# branch.oid } ;;
+                '# branch.ab +'*)
+                    ahead=${line#\# branch.ab +}
+                    ahead=${ahead%% *}
+                    behind=${line##* -}
+                    ;;
                 '# '*) ;;
+                'u '*) conflicted=1; dirty=1 ;;
                 # matches any other nonempty line as Git emits records for files that are modified
                 ?*) dirty=1 ;;
             esac
@@ -41,7 +47,22 @@ _powerline_prompt_precmd() {
             fi
         fi
 
-        (( dirty )) && branch_bg='magenta'
+        #  U+E0A0 branch, ↑ U+2191 ahead, ↓ U+2193 behind,
+        # ↕ U+2195 diverged, ✘ U+2718 unmerged conflict
+        if (( conflicted )); then
+            branch_symbol='✘'
+        elif (( ahead && behind )); then
+            branch_symbol='↕'
+        elif (( ahead )); then
+            branch_symbol='↑'
+        elif (( behind )); then
+            branch_symbol='↓'
+        fi
+
+        if (( dirty )); then
+            branch_bg='magenta'
+            dirty_symbol=' ±' # U+00B1, plus-minus sign
+        fi
 
         # Zsh interprets percent signs in PROMPT, so escape any in the branch name
         # // replace every occurrence, %% displays one literal percent sign in prompt syntax
@@ -52,7 +73,7 @@ _powerline_prompt_precmd() {
         # %b: turn off bold text.
         # %k: reset the background color.
         # %~: display the current directory, using ~ for the home directory.
-        PROMPT="%f%b%k%K{blue}%F{black} %~ %K{$branch_bg}%F{blue}${separator}%F{black} ${branch_symbol} ${branch} %k%F{$branch_bg}${separator}%f "
+        PROMPT="%f%b%k%K{blue}%F{black} %~ %K{$branch_bg}%F{blue}${separator}%F{black} ${branch_symbol} ${branch}${dirty_symbol} %k%F{$branch_bg}${separator}%f "
     else
         PROMPT="%f%b%k%K{blue}%F{black} %~ %k%F{blue}${separator}%f "
     fi
