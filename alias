@@ -1,8 +1,6 @@
 # shell
 alias s='cd ..'
-alias f='find . -name'
 alias vi="nvim"
-alias copy="xclip -selection clipboard"
 
 # git
 alias gm='git lg --author="$(git config user.name)"'
@@ -12,7 +10,4 @@ alias gshd='git -c diff.external=difft show --ext-diff'
 
 # android
 alias ss='adb exec-out screencap -p > ~/Desktop/screenshot-"$( date +%Y.%m.%d-%H.%M.%S )".png'
-
-# linux
-alias rw='sudo grub-reboot "Windows Boot Manager (on /dev/nvme0n1p1)" && reboot'
 
