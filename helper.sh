@@ -34,6 +34,15 @@ function link() {
     echo-result "Link $tgt"
 }
 
+function link-hidden-folder() {
+    # $1 category, $2 file to link
+    src="$PWD/$1/$2"
+    tgt="$HOME/.$1/$2"
+    [[ -h "$tgt" ]] && rm $tgt
+    ln -s $src $tgt
+    echo-result "Link $tgt"
+}
+
 function clone-or-pull() {
     # $1 git repo url, $2 clone destination
     if [[ -d "$2" ]]; then

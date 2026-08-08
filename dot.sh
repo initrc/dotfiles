@@ -15,24 +15,10 @@ function dot-sys-dep() { # install system dependencies
     fi
 }
 
-function dot-zsh-install() { # install oh-my-zsh
-    echo-todo "Install oh-my-zsh from https://ohmyz.sh/#install"
-}
-
 function dot-zsh-config() { # configure zsh
+    link . zshrc
     link . alias
-    if [ "$(uname)" = "Darwin" ]; then
-        # use linux lscolors on macOS
-        safe-append $HOME/.zshrc "export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd"
-    fi
-    safe-append $HOME/.zshrc "DEFAULT_USER=\"$(whoami)\""
-    safe-append $HOME/.zshrc "source \$HOME/.alias"
-    safe-append $HOME/.zshrc "ZSH_THEME=\"agnoster\""
-    echo-result "Configure zsh"
-    echo-todo "[~/.zshrc] Move the theme config to the top"
-    echo-todo "[~/.oh-my-zsh/themes/agnoster.zsh-theme] Comment out RETVAL from build_prompt()"
-    echo-todo "[~/.oh-my-zsh/themes/agnoster.zsh-theme] Remove branch from build_prompt()"
-    echo-todo "[~/.oh-my-zsh/themes/agnoster.zsh-theme] Update hg rev=\$(command hg id 2>/dev/null | cut -c1-10)"
+    link-hidden-folder config starship.toml
 }
 
 function dot-nvim-install() { # install nvim
