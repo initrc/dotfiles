@@ -19,6 +19,7 @@ function dot-zsh-config() { # configure zsh
     link . zshrc
     link . zsh-prompt.zsh
     link . alias
+    touch ~/.hushlogin # suppresses the message when opening a new login shell
 }
 
 function dot-nvim-install() { # install nvim
