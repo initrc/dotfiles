@@ -27,6 +27,7 @@ dot-zsh-config      : configure zsh
 dot-nvim-install    : install nvim
 dot-nvim-config     : configure nvim
 dot-git-config      : configure git
+dot-tmux-config     : configure tmux
 dot-mac-config      : configure macOS keyboard and mouse
 ```
 

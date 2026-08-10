@@ -55,6 +55,10 @@ function dot-git-config() { # configure git
     echo-todo "git config --global user.email ...@..."
 }
 
+function dot-tmux-config() { # configure tmux
+    link . tmux.conf
+}
+
 function dot-mac-config() { # configure macOS keyboard and mouse
     defaults write -g InitialKeyRepeat -int 15 # default minimum is 15 (225 ms)
     defaults write -g KeyRepeat -int 2 # default minimum is 2 (30 ms)
