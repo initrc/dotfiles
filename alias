@@ -7,7 +7,8 @@ alias vi="nvim"
 # git https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/README.md
 alias ga='git add'
 alias gaa='git add -A'
-alias gb='git add b'
+alias gb='git branch'
+alias gbd='git branch -d'
 alias gc='git commit'
 alias gca='git commit --amend'
 alias gcm='git commit --message'
@@ -21,9 +22,14 @@ alias glols="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgr
 alias glr='git pull --rebase'
 alias gp='git push'
 alias gpf='git push --force-with-lease'
+alias gr='git restore'
+alias grs='git restore --staged'
 alias gs='git status'
 alias gsh='git -c diff.external=difft show --ext-diff'
 alias gsho='git show'
+alias gwa='git worktree add'
+alias gwl='git worktree list'
+alias gwr='git worktree remove'
 
 # android
 alias ss='adb exec-out screencap -p > ~/Desktop/screenshot-"$( date +%Y.%m.%d-%H.%M.%S )".png'
