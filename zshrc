@@ -1,5 +1,11 @@
 export EDITOR="nvim"
 export VISUAL="nvim"
+typeset -U path PATH
+path=(
+  "$HOME/.local/share/nvim/mason/bin" # nvim language servers and linters
+  $path
+)
+
 source "$HOME/.alias"
 source "$HOME/.alias2"
 source "$HOME/.zsh-prompt.zsh"
