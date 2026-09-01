@@ -1,20 +1,37 @@
-"line number
-set relativenumber number
+let mapleader=" "
 
-"H and L to start and end of line
+" H and L to start and end of line
 noremap H ^
 noremap L $
-"K and J to page up and down
+" K and J to page up and down
 noremap K <C-b>M
 noremap J <C-f>M
-"+ to join lines (J is remapped)
+" + to join lines (J is remapped)
 noremap + J
-"U to redo
+" U to redo
 nnoremap U <C-r>
-
-"clipboard
+" Move cursor left/right in Insert and Command-line mode
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+cnoremap <C-h> <Left>
+cnoremap <C-l> <Right>
+" Clipboard
 set clipboard+=unnamed
-
-"search
+" Search
 set ignorecase
+set smartcase
+" Bell off
+set visualbell
 
+" Actions, find ActionId with :actionlist
+map <leader>ff <Action>(SearchEverywhere)
+map <leader>fg <Action>(FindInPath)
+map <leader>rc <Action>(Run)
+map <leader>vs <Action>(MoveTabRight)
+map gd <Action>(GotoDeclaration)
+map gra <Action>(ShowIntentionActions)
+map gri <Action>(GotoImplementation)
+map grn <Action>(RenameElement)
+map grr <Action>(FindUsages)
+map [b <Action>(PreviousTab)
+map ]b <Action>(NextTab)
