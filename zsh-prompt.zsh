@@ -60,7 +60,7 @@ _powerline_prompt_precmd() {
         fi
 
         if (( dirty )); then
-            branch_bg='magenta'
+            branch_bg='red'
             dirty_symbol=' ±' # U+00B1, plus-minus sign
         fi
 
@@ -68,14 +68,14 @@ _powerline_prompt_precmd() {
         # // replace every occurrence, %% displays one literal percent sign in prompt syntax
         branch=${branch//\%/%%}
 
-        # blue directory segment followed by a green (clean) or magenta (dirty) Git segment
+        # yellow directory segment followed by a green (clean) or red (dirty) Git segment
         # %f: reset the foreground color.
         # %b: turn off bold text.
         # %k: reset the background color.
         # %~: display the current directory, using ~ for the home directory.
-        PROMPT="%f%b%k%K{blue}%F{black} %~ %K{$branch_bg}%F{blue}${separator}%F{black} ${branch_symbol} ${branch}${dirty_symbol} %k%F{$branch_bg}${separator}%f "
+        PROMPT="%f%b%k%K{yellow}%F{black} %~ %K{$branch_bg}%F{yellow}${separator}%F{black} ${branch_symbol} ${branch}${dirty_symbol} %k%F{$branch_bg}${separator}%f "
     else
-        PROMPT="%f%b%k%K{blue}%F{black} %~ %k%F{blue}${separator}%f "
+        PROMPT="%f%b%k%K{yellow}%F{black} %~ %k%F{yellow}${separator}%f "
     fi
 
     # printf 'Prompt generated in %.2f ms\n' \
