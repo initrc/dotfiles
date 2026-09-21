@@ -1,3 +1,5 @@
+alias a1='cat ~/.alias'
+
 # shell
 alias ls='ls -G'
 alias la='ls -lAh'
@@ -35,4 +37,3 @@ alias gwr='git worktree remove'
 
 # android
 alias ss='adb exec-out screencap -p > ~/Desktop/screenshot-"$( date +%Y.%m.%d-%H.%M.%S )".png'
-
