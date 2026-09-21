@@ -24,7 +24,7 @@ set smartcase
 set visualbell
 
 " Actions, find ActionId with :actionlist
-map <leader>ff <Action>(SearchEverywhere)
+map <leader>ff <Action>(GotoFile)
 map <leader>fg <Action>(FindInPath)
 map <leader>rc <Action>(Run)
 map <leader>vs <Action>(MoveTabRight)
